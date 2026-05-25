@@ -46,7 +46,7 @@ function Home() {
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                to="/explore"
+                to="/kinks-explorer"
                 className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-7 py-3.5 text-[11px] uppercase tracking-[0.25em] hover:bg-primary/90 transition-colors"
               >
                 Explore the Atlas
