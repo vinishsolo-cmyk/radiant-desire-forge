@@ -4,7 +4,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PageHeader } from "@/components/site/PageHeader";
 
-export const Route = createFileRoute("/explore")({
+export const Route = createFileRoute("/kinks-explorer")({
   head: () => ({
     meta: [
       { title: "Explore — Velvet Desire" },
