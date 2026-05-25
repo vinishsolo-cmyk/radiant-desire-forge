@@ -10,8 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as KinksExplorerRouteImport } from './routes/kinks-explorer'
 import { Route as JournalRouteImport } from './routes/journal'
-import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -21,14 +21,14 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KinksExplorerRoute = KinksExplorerRouteImport.update({
+  id: '/kinks-explorer',
+  path: '/kinks-explorer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JournalRoute = JournalRouteImport.update({
   id: '/journal',
   path: '/journal',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExploreRoute = ExploreRouteImport.update({
-  id: '/explore',
-  path: '/explore',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -51,16 +51,16 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/explore': typeof ExploreRoute
   '/journal': typeof JournalRoute
+  '/kinks-explorer': typeof KinksExplorerRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/explore': typeof ExploreRoute
   '/journal': typeof JournalRoute
+  '/kinks-explorer': typeof KinksExplorerRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesById {
@@ -68,22 +68,28 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/explore': typeof ExploreRoute
   '/journal': typeof JournalRoute
+  '/kinks-explorer': typeof KinksExplorerRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/explore' | '/journal' | '/shop'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/journal'
+    | '/kinks-explorer'
+    | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/explore' | '/journal' | '/shop'
+  to: '/' | '/about' | '/contact' | '/journal' | '/kinks-explorer' | '/shop'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
-    | '/explore'
     | '/journal'
+    | '/kinks-explorer'
     | '/shop'
   fileRoutesById: FileRoutesById
 }
@@ -91,8 +97,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ExploreRoute: typeof ExploreRoute
   JournalRoute: typeof JournalRoute
+  KinksExplorerRoute: typeof KinksExplorerRoute
   ShopRoute: typeof ShopRoute
 }
 
@@ -105,18 +111,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kinks-explorer': {
+      id: '/kinks-explorer'
+      path: '/kinks-explorer'
+      fullPath: '/kinks-explorer'
+      preLoaderRoute: typeof KinksExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/journal': {
       id: '/journal'
       path: '/journal'
       fullPath: '/journal'
       preLoaderRoute: typeof JournalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/explore': {
-      id: '/explore'
-      path: '/explore'
-      fullPath: '/explore'
-      preLoaderRoute: typeof ExploreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -147,8 +153,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ExploreRoute: ExploreRoute,
   JournalRoute: JournalRoute,
+  KinksExplorerRoute: KinksExplorerRoute,
   ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport
