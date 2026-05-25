@@ -72,14 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Velvet Desire — Reclaim Your Pleasure" },
+      { name: "description", content: "A quiet sanctuary for sensual rediscovery. Shame-free, discreet, made for women who want to feel everything again." },
+      { name: "author", content: "Velvet Desire" },
+      { property: "og:title", content: "Velvet Desire — Reclaim Your Pleasure" },
+      { property: "og:description", content: "A quiet sanctuary for sensual rediscovery." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
