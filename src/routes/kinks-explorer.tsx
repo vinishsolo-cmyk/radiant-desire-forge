@@ -7,7 +7,7 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/kinks-explorer")({
   head: () => ({
     meta: [
-      { title: "Explore — Velvet Desire" },
+      { title: "Kinks Explorer — Velvet Desire" },
       { name: "description", content: "A gentle atlas of fantasy, kink and fetish. Discover the language of your desire." },
     ],
   }),
