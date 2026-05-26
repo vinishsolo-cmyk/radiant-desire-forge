@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as KinksExplorerRouteImport } from './routes/kinks-explorer'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KinksSlugRouteImport } from './routes/kinks.$slug'
 
 const KinksExplorerRoute = KinksExplorerRouteImport.update({
   id: '/kinks-explorer',
@@ -22,31 +23,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KinksSlugRoute = KinksSlugRouteImport.update({
+  id: '/kinks/$slug',
+  path: '/kinks/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/kinks-explorer': typeof KinksExplorerRoute
+  '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/kinks-explorer': typeof KinksExplorerRoute
+  '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/kinks-explorer': typeof KinksExplorerRoute
+  '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kinks-explorer'
+  fullPaths: '/' | '/kinks-explorer' | '/kinks/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kinks-explorer'
-  id: '__root__' | '/' | '/kinks-explorer'
+  to: '/' | '/kinks-explorer' | '/kinks/$slug'
+  id: '__root__' | '/' | '/kinks-explorer' | '/kinks/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KinksExplorerRoute: typeof KinksExplorerRoute
+  KinksSlugRoute: typeof KinksSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,13 +75,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kinks/$slug': {
+      id: '/kinks/$slug'
+      path: '/kinks/$slug'
+      fullPath: '/kinks/$slug'
+      preLoaderRoute: typeof KinksSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KinksExplorerRoute: KinksExplorerRoute,
+  KinksSlugRoute: KinksSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
