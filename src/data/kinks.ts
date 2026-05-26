@@ -25,31 +25,187 @@ export const top15Kinks: Top15Kink[] = [
   { slug: "public", title: "Semi-Public + Jealousy Play", paragraph: "The adrenaline of risky locations combined with controlled flirting that sparks a hotter reconnection.", trend: "Widely fantasized and practiced discreetly.", combo: "Exhibitionism + Voyeurism.", explore: "Semi-public ideas; jealousy play rules." },
 ];
 
-export const azKinks: { letter: string; title: string; subtitle: string; paragraphs: string[] }[] = [
-  { letter: "A", title: "Anal Play", subtitle: "Slow, lubricated, communicative.", paragraphs: ["Anal play, introduced patiently, opens up an entirely new map of nerve endings. Done with lube, time, and trust, it can be one of the most intense forms of pleasure.", "It's not a finish line — it's a conversation. Start outside, listen to the body, and never rush."] },
-  { letter: "B", title: "Bondage", subtitle: "Restraint as devotion.", paragraphs: ["Bondage is less about ropes and more about surrender. Tied wrists, a blindfold, or a silk scarf can change the entire chemistry of an encounter.", "Begin with what's already in the house. Keep safety scissors and a clear safeword nearby."] },
-  { letter: "C", title: "Chastity & Control", subtitle: "Pleasure delayed is pleasure multiplied.", paragraphs: ["Handing over control of release transforms the everyday. A locked drawer, a hidden key, a daily check-in — chastity makes desire constant.", "It rewards patience and communication. The eventual release is rarely just physical."] },
-  { letter: "D", title: "Dominance & Submission", subtitle: "Power as a love language.", paragraphs: ["D/s creates structure that paradoxically frees both partners. One leads, one yields, and both stop performing.", "It can be a moment, a scene, or a lifestyle. Choose the depth that fits your relationship."] },
-  { letter: "E", title: "Edging", subtitle: "The art of almost.", paragraphs: ["Edging stretches the climb so the peak feels like a cliff. It teaches partners to read the body in real time.", "Practice solo first to learn your own signals, then bring that knowledge to your partner."] },
-  { letter: "F", title: "Foot Fetish", subtitle: "Worship from the ground up.", paragraphs: ["Feet are loaded with nerves, often hidden, and rarely given full attention. That neglect is exactly what makes the fetish so powerful.", "Massage, oils, slow kisses — start with care, not performance."] },
-  { letter: "G", title: "Group Play", subtitle: "More hands, more conversation.", paragraphs: ["Group dynamics — threesomes, foursomes, soft swaps — require the most communication of any kink. The reward is shared intensity.", "Talk for hours before you touch for minutes. The afterglow conversation matters even more."] },
-  { letter: "H", title: "Humiliation Play", subtitle: "Forbidden words, safely held.", paragraphs: ["The thrill is in saying the unsayable, with a partner who clearly adores you. Outside the scene, the affection is total.", "Negotiate every word. What's hot for one person is harmful for another."] },
-  { letter: "I", title: "Impact Play", subtitle: "From love-tap to paddle.", paragraphs: ["Spanks, floggers, paddles — impact play is a spectrum. Light strikes warm the skin; heavier ones are for experienced players.", "Avoid the kidneys and spine. Aim for the meaty parts. Aftercare always."] },
-  { letter: "J", title: "Guided Pleasure (JOI)", subtitle: "Words leading the way.", paragraphs: ["A voice telling you exactly when to speed up, slow down, stop, breathe — is a deeply intimate kink.", "It works at a distance or in person. The voice does the touching."] },
-  { letter: "K", title: "Knife & Edge Play", subtitle: "Advanced, never accidental.", paragraphs: ["The cool drag of a blunt blade across the skin is more psychological than physical — a symbol of trust and presence.", "For experienced players only. Use dull blades and clear, sober consent."] },
-  { letter: "L", title: "Latex & Leather", subtitle: "A second skin.", paragraphs: ["Material kinks are about transformation. Slipping into latex or leather changes posture, breath, and self-image instantly.", "Even one piece — gloves, a collar, a corset — can shift the entire mood."] },
-  { letter: "M", title: "Masks & Anonymity", subtitle: "Becoming someone new.", paragraphs: ["A mask removes identity and adds permission. Without your face, your wants get louder.", "Pair with low light, slow music, and a partner you trust completely."] },
-  { letter: "N", title: "Nipple Play", subtitle: "The forgotten erogenous zone.", paragraphs: ["For many bodies, sustained nipple attention can produce orgasm on its own. For most, it's a deeply underused channel.", "Start with breath and lips, then introduce ice, clamps, or suction."] },
-  { letter: "O", title: "Orgasm Control", subtitle: "Permission required.", paragraphs: ["Asking — and being asked — for permission to climax turns the everyday into ritual.", "It pairs naturally with edging and chastity, and teaches a presence most partners never reach."] },
-  { letter: "P", title: "Praise Kink", subtitle: "Words as caresses.", paragraphs: ["Some bodies bloom under being told they are wanted, beautiful, perfect.", "Praise costs nothing and changes everything."] },
-  { letter: "Q", title: "Queening", subtitle: "Worship from above.", paragraphs: ["A position of complete reception — being attended to, devoured. Power exchange in its most generous form.", "It rewards a confident giver and a partner willing to fully receive."] },
-  { letter: "R", title: "Roleplay", subtitle: "Step into someone new tonight.", paragraphs: ["Strangers at a bar, the captive, the royal — roleplay is the kink with the lowest barrier and highest reward.", "All you need is a first line and the courage not to laugh."] },
-  { letter: "S", title: "Sensation Play", subtitle: "Skin as instrument.", paragraphs: ["Feathers, ice, silk, warm oil. Sensation play teaches the body to listen.", "Blindfold a partner and the smallest touch becomes the loudest signal."] },
-  { letter: "T", title: "Tease & Denial", subtitle: "Almost, almost, almost.", paragraphs: ["Bringing someone close and pulling away is a choreography. Done with affection, it deepens trust as much as tension.", "The longer, sweeter cousin of edging."] },
-  { letter: "U", title: "Uniforms", subtitle: "The power of the costume.", paragraphs: ["Nurses, officers, maids, executives — uniforms compress a whole archetype into one outfit. Putting one on shifts the room.", "The fantasy is the role, the authority, the secret."] },
-  { letter: "V", title: "Voyeurism", subtitle: "Watching is touching.", paragraphs: ["Some of the hottest sex involves no contact at all — only attention.", "Mirrors, slow undressing, and shared phones all live here."] },
-  { letter: "W", title: "Wax Play", subtitle: "Heat that traces the body.", paragraphs: ["Low-temperature candle wax drips warm patterns across the skin, sealing sensation in soft trails.", "Use only candles designed for body play. Test on yourself first."] },
-  { letter: "X", title: "Taboo Roleplay", subtitle: "The thoughts you don't say out loud.", paragraphs: ["The forbidden corners of imagination — held safely between consenting adults — can defuse shame and produce extraordinary intimacy.", "Keep the line between fantasy and harm clearly drawn, and revisit it often."] },
-  { letter: "Y", title: "Yielding", subtitle: "Letting go, completely.", paragraphs: ["Total surrender, even briefly, is one of the most healing experiences a tightly-wound adult can have.", "It requires a partner of unshakable care and an ongoing conversation about limits."] },
-  { letter: "Z", title: "Zentai & Full Coverage", subtitle: "Disappear into the suit.", paragraphs: ["Full-body suits remove identity completely and turn the wearer into pure form.", "Pairs naturally with sensation play and roleplay."] },
+export type AzItem = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  image: string;
+};
+
+export type AzGroup = { letter: string; items: AzItem[] };
+
+const azThumb = "/placeholders/az-thumb.jpg";
+
+export const azKinks: AzGroup[] = [
+  {
+    letter: "A",
+    items: [
+      { slug: "anal-play", title: "Anal Play", subtitle: "Slow, lubricated, communicative.", excerpt: "Introduced patiently, anal play opens up an entirely new map of nerve endings. Done with lube, time and trust, it becomes one of the most intense forms of pleasure.", image: azThumb },
+      { slug: "aftercare", title: "Aftercare", subtitle: "The tenderness after intensity.", excerpt: "Water, warmth, soft words. Aftercare is the closing ritual that lets the body and the heart land gently after a heavier scene.", image: azThumb },
+      { slug: "age-play", title: "Age Play", subtitle: "Stepping into a softer role.", excerpt: "A consensual fantasy of caretaker and cared-for. About comfort and surrender, not literal age — negotiated carefully between adults.", image: azThumb },
+      { slug: "anticipation", title: "Anticipation Play", subtitle: "Hours of slow build.", excerpt: "A whispered promise at breakfast that doesn't unfold until midnight. The waiting itself becomes the experience.", image: azThumb },
+      { slug: "anonymous", title: "Anonymous Encounters (Roleplay)", subtitle: "Strangers, just for tonight.", excerpt: "Two partners meeting as strangers in a hotel bar — a safe roleplay that resets familiarity and sharpens attraction.", image: azThumb },
+      { slug: "asphyxiation-light", title: "Light Breath Play", subtitle: "Advanced, careful, optional.", excerpt: "A delicate hand at the throat, never closing the airway. Often misunderstood — for couples who have done their reading and trust completely.", image: azThumb },
+    ],
+  },
+  {
+    letter: "B",
+    items: [
+      { slug: "bondage", title: "Bondage", subtitle: "Restraint as devotion.", excerpt: "Less about ropes and more about surrender. Tied wrists, a blindfold, or a silk scarf can transform the entire chemistry of an encounter.", image: "/placeholders/bondage/bondageimage1.jpg" },
+      { slug: "blindfolds", title: "Blindfolds", subtitle: "Silence one sense, magnify the others.", excerpt: "Removing sight makes every breath, brush and whisper louder. A perfect first step into sensation play.", image: azThumb },
+      { slug: "biting", title: "Biting & Marking", subtitle: "Soft teeth, lasting traces.", excerpt: "A small bite at the shoulder, a hickey just below the collarbone — claim left tenderly for only the two of you to find later.", image: azThumb },
+    ],
+  },
+  {
+    letter: "C",
+    items: [
+      { slug: "chastity-control", title: "Chastity & Control", subtitle: "Pleasure delayed is pleasure multiplied.", excerpt: "A locked drawer, a hidden key, a daily check-in. Handing over the timing of release transforms the everyday.", image: azThumb },
+      { slug: "collaring", title: "Collaring", subtitle: "A symbol worn close to the skin.", excerpt: "A delicate chain or velvet ribbon — an everyday reminder of a shared dynamic only the two of you understand.", image: azThumb },
+    ],
+  },
+  {
+    letter: "D",
+    items: [
+      { slug: "dominance-submission", title: "Dominance & Submission", subtitle: "Power as a love language.", excerpt: "Structure that paradoxically frees both partners. One leads, one yields, and both stop performing.", image: azThumb },
+      { slug: "dirty-talk", title: "Dirty Talk", subtitle: "Words that become hands.", excerpt: "Whispers, instructions, fantasies spoken aloud — a kink with zero equipment and an enormous payoff.", image: azThumb },
+    ],
+  },
+  {
+    letter: "E",
+    items: [
+      { slug: "edging", title: "Edging", subtitle: "The art of almost.", excerpt: "Stretching the climb so the peak feels like a cliff. It teaches partners to read each other's bodies in real time.", image: azThumb },
+      { slug: "exhibitionism", title: "Exhibitionism", subtitle: "The rush of being seen.", excerpt: "Curtains slightly open, a private mirror, a controlled photo. Being looked at — by the right person — can be electric.", image: azThumb },
+    ],
+  },
+  {
+    letter: "F",
+    items: [
+      { slug: "foot-fetish", title: "Foot Fetish", subtitle: "Worship from the ground up.", excerpt: "Feet are loaded with nerves, often hidden and rarely given full attention. That neglect is what makes the fetish so powerful.", image: azThumb },
+    ],
+  },
+  {
+    letter: "G",
+    items: [
+      { slug: "group-play", title: "Group Play", subtitle: "More hands, more conversation.", excerpt: "Threesomes, foursomes, soft swaps. The kink that requires the most communication — and rewards it with shared intensity.", image: azThumb },
+    ],
+  },
 ];
+
+// -----------------------------------------------------------------------------
+// Detail content for individual kink pages.
+// Add an entry here for any kink slug to give it a rich left-side ToC layout.
+// Anything without a custom entry falls back to a gentle generic template.
+// -----------------------------------------------------------------------------
+
+export type KinkSection = {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  image?: string;
+};
+
+export type KinkDetail = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  intro: string;
+  hero: string;
+  chapters: { id: string; title: string }[];
+  sections: KinkSection[];
+};
+
+export const kinkDetails: Record<string, KinkDetail> = {
+  bondage: {
+    slug: "bondage",
+    title: "Bondage",
+    subtitle: "Restraint as devotion — a gentle, modern guide.",
+    intro:
+      "Bondage is one of the most misunderstood corners of intimacy. At its heart, it isn't about ropes or rules — it's about the quiet, electric trust of letting someone hold you still while you hold yourself open. This guide moves slowly, the way the practice itself should.",
+    hero: "/placeholders/bondage/bondageimage1.jpg",
+    chapters: [
+      { id: "introduction", title: "Introduction" },
+      { id: "psychology", title: "The Psychology of Surrender" },
+      { id: "starting-at-home", title: "Starting at Home" },
+      { id: "tools", title: "Tools & Materials" },
+      { id: "communication", title: "Communication & Safewords" },
+      { id: "techniques", title: "Beginner Techniques" },
+      { id: "aftercare", title: "Aftercare & Reflection" },
+      { id: "going-further", title: "Going Further" },
+    ],
+    sections: [
+      {
+        id: "introduction",
+        title: "Introduction",
+        image: "/placeholders/bondage/bondageimage1.jpg",
+        paragraphs: [
+          "Bondage covers anything that gently restricts movement — silk scarves, soft cuffs, a hand pinning a wrist. The instrument matters less than the intention behind it.",
+          "Approached with patience, it becomes a slow conversation between bodies. The one tied is not 'less than' — they are deeply, attentively held.",
+        ],
+      },
+      {
+        id: "psychology",
+        title: "The Psychology of Surrender",
+        image: "/placeholders/bondage/bondageimage2.jpg",
+        paragraphs: [
+          "Most adults spend the day in control — of work, of children, of expectations. To briefly hand that weight over to a trusted partner can be profoundly restorative.",
+          "Surrender, in this context, is not weakness. It is a precise, conscious choice that requires more presence, not less. The partner doing the tying carries an equal kind of weight: complete responsibility for the experience.",
+        ],
+      },
+      {
+        id: "starting-at-home",
+        title: "Starting at Home",
+        image: "/placeholders/bondage/bondageimage3.jpg",
+        paragraphs: [
+          "You don't need a kit. A silk scarf, a soft belt, or simply a partner's hands wrapped firmly around your wrists is enough for an entire first evening.",
+          "Begin clothed. Begin with the wrists. Notice how a held wrist changes the breath, the eye contact, the temperature of the room. That noticing is the practice.",
+        ],
+      },
+      {
+        id: "tools",
+        title: "Tools & Materials",
+        image: "/placeholders/bondage/bondageimage4.jpg",
+        paragraphs: [
+          "When you're ready to add equipment, choose softer materials first: cotton or bamboo rope, padded velcro cuffs, a silk blindfold. Avoid anything thin or wiry that can cut into the skin.",
+          "Always keep safety scissors within arm's reach — even with knots you trust. A single pair of EMT shears can free a partner in seconds if anything ever feels wrong.",
+        ],
+      },
+      {
+        id: "communication",
+        title: "Communication & Safewords",
+        image: "/placeholders/bondage/bondageimage5.jpg",
+        paragraphs: [
+          "Agree on words before you begin. The traffic-light system is the simplest: green means 'more', yellow means 'pause and check in', red means 'stop now'.",
+          "Build in a non-verbal signal too — humming, tapping a hand three times — for moments when the mouth is busy or the headspace is too deep for words.",
+        ],
+      },
+      {
+        id: "techniques",
+        title: "Beginner Techniques",
+        image: "/placeholders/bondage/bondageimage6.jpg",
+        paragraphs: [
+          "Single-column wrist tie: the gentlest entry point. Two fingers of slack at all times, knots away from the pulse, and never tied to anything immovable.",
+          "Body-to-body bondage: no rope at all. One partner uses their full body — chest, thigh, forearm — to pin the other to the bed. Equally effective, infinitely more romantic.",
+        ],
+      },
+      {
+        id: "aftercare",
+        title: "Aftercare & Reflection",
+        image: "/placeholders/bondage/bondageimage1.jpg",
+        paragraphs: [
+          "After the ties come off, the work isn't quite finished. Water, a blanket, slow touch, low light. The nervous system needs a soft landing.",
+          "A quiet conversation the next morning — what felt good, what surprised you, what you'd change — is where the practice actually deepens.",
+        ],
+      },
+      {
+        id: "going-further",
+        title: "Going Further",
+        image: "/placeholders/bondage/bondageimage2.jpg",
+        paragraphs: [
+          "If this opens something in you, you might explore decorative rope work (shibari), suspension classes with qualified teachers, or longer scenes that integrate sensation play and roleplay.",
+          "Whatever direction you go, the principles never change: consent, patience, presence, aftercare. The ropes are only the surface of the practice.",
+        ],
+      },
+    ],
+  },
+};
