@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Feather, Heart, Flame, ArrowRight, Sparkles } from "lucide-react";
+import { Feather, Heart, Flame, ArrowRight, Sparkles, BookOpen } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { top15Kinks, azKinks } from "@/data/kinks";
@@ -87,41 +87,39 @@ function KinksExplorer() {
         </div>
       </section>
 
-      {/* QUIET CTA */}
-      <section className="border-y border-border/60 py-20 bg-secondary/30">
-        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-[1fr_auto] gap-10 items-center">
-          <div>
-            <p className="eyebrow">Not sure what truly turns you on?</p>
-            <h2 className="mt-4 font-serif text-3xl md:text-5xl leading-tight text-balance">
-              Let your <em className="italic text-primary">curiosity</em> lead the way.
-            </h2>
-            <p className="mt-4 max-w-xl text-muted-foreground leading-relaxed">
-              Sometimes it isn't that you don't have desires — you've never had the space to
-              explore them freely.
-            </p>
-          </div>
-          <a
-            href="#library"
-            className="inline-flex items-center gap-3 px-7 py-4 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] hover:bg-primary/90 transition-colors"
-          >
-            Browse the library <ArrowRight size={14} />
-          </a>
-        </div>
-      </section>
-
-      {/* TOP 15 */}
-      <section className="py-24">
+      {/* TOP 15 — with hero image */}
+      <section className="py-24 border-t border-border/60">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <div className="max-w-2xl">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-stretch mb-16">
+            <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+              <img
+                src="/placeholders/top15-hero.jpg"
+                alt="Top 15 kinks worth exploring"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-background">
+                <p className="text-[11px] uppercase tracking-[0.35em] opacity-90">The Hot List · 2026</p>
+                <p className="mt-2 font-serif italic text-3xl">Curated by Velvet Desire</p>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center">
               <p className="eyebrow">The Hot List</p>
-              <h2 className="mt-4 font-serif text-4xl md:text-5xl">
+              <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
                 Top 15 kinks <em className="italic text-primary">worth</em> exploring.
               </h2>
+              <p className="mt-5 text-muted-foreground leading-relaxed">
+                Our most-requested introductions, for grown-ups who want pleasure with intention.
+                Each one comes with a current trend note, a beautiful pairing, and a way in.
+              </p>
+              <a
+                href="#library"
+                className="mt-8 inline-flex w-fit items-center gap-3 px-7 py-3 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] hover:bg-primary/90 transition-colors"
+              >
+                Jump to A–Z library <ArrowRight size={14} />
+              </a>
             </div>
-            <p className="max-w-md text-muted-foreground leading-relaxed">
-              Our most-requested introductions, for grown-ups who want pleasure with intention.
-            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
@@ -143,33 +141,55 @@ function KinksExplorer() {
 
       {/* A–Z LIBRARY */}
       <section id="library" className="border-t border-border/60 py-24 bg-secondary/30">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl mb-16">
             <p className="eyebrow">The Library</p>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl">
               Kinks from <em className="italic text-primary">A</em> to <em className="italic text-primary">Z</em>.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              A growing alphabet of desire. Browse, bookmark, whisper one to your partner tonight.
+              A growing alphabet of desire. Tap any title to read the full guide — chapters,
+              images, gentle starting steps and aftercare.
             </p>
           </div>
 
-          <ul className="space-y-12">
-            {azKinks.map((item) => (
-              <li key={item.letter} className="grid md:grid-cols-[6rem_1fr] gap-6 md:gap-10 items-start border-b border-border/40 pb-10">
-                <div className="font-serif italic text-6xl md:text-7xl text-primary/80 leading-none">
-                  {item.letter}
+          <div className="space-y-20">
+            {azKinks.map((group) => (
+              <div key={group.letter} className="grid md:grid-cols-[6rem_1fr] gap-8 md:gap-10 items-start border-b border-border/40 pb-16">
+                <div className="font-serif italic text-7xl md:text-8xl text-primary leading-none">
+                  {group.letter}
                 </div>
-                <div>
-                  <h3 className="font-serif text-2xl md:text-3xl leading-tight">{item.title}</h3>
-                  <p className="mt-1 eyebrow">{item.subtitle}</p>
-                  <div className="mt-4 space-y-3 text-[15px] text-muted-foreground leading-relaxed">
-                    {item.paragraphs.map((p, idx) => <p key={idx}>{p}</p>)}
-                  </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {group.items.map((item) => (
+                    <article key={item.slug} className="group bg-background border border-border/60 flex flex-col">
+                      <div className="aspect-[4/3] overflow-hidden bg-secondary">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-6 flex flex-col flex-1">
+                        <h3 className="font-serif text-2xl leading-tight">{item.title}</h3>
+                        <p className="mt-1 eyebrow">{item.subtitle}</p>
+                        <p className="mt-4 text-sm text-muted-foreground leading-relaxed line-clamp-4">
+                          {item.excerpt}
+                        </p>
+                        <Link
+                          to="/kinks/$slug"
+                          params={{ slug: item.slug }}
+                          className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary hover:gap-3 transition-all"
+                        >
+                          <BookOpen size={14} /> Read fully <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
