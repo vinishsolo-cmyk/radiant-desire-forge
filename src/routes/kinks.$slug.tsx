@@ -16,7 +16,7 @@ export const Route = createFileRoute("/kinks/$slug")({
       ],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): KinkDetail => {
     const detail = kinkDetails[params.slug] ?? buildFallback(params.slug);
     if (!detail) throw notFound();
     return detail;
