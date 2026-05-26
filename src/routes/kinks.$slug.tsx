@@ -69,7 +69,7 @@ function buildFallback(slug: string): KinkDetail | null {
 }
 
 function KinkDetailPage() {
-  const detail = Route.useLoaderData();
+  const detail: KinkDetail = Route.useLoaderData();
   const [activeId, setActiveId] = useState(detail.chapters[0]?.id ?? "");
 
   useEffect(() => {
