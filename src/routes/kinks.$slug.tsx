@@ -118,6 +118,31 @@ function KinkDetailPage() {
         </div>
       </section>
 
+      {/* QUICK-NAV PILLS */}
+      <section className="border-b border-border/60 bg-secondary/30 sticky top-16 z-30 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <div className="flex items-center gap-3 overflow-x-auto scrollbar-none">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground shrink-0 pr-2 border-r border-border">
+              Jump to
+            </span>
+            {detail.chapters.map((c) => (
+              <a
+                key={c.id}
+                href={`#${c.id}`}
+                className={`shrink-0 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] border transition-colors ${
+                  c.id === activeId
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "border-border text-muted-foreground hover:border-primary/60 hover:text-primary"
+                }`}
+              >
+                {c.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* BODY w/ SIDEBAR */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[16rem_1fr] gap-12">
