@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { azKinks, kinkDetails, type KinkDetail } from "@/data/kinks";
+import { azKinks, kinkDetails, top15Kinks, type KinkDetail } from "@/data/kinks";
 
 export const Route = createFileRoute("/kinks/$slug")({
   head: ({ params }) => {
