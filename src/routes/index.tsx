@@ -104,6 +104,7 @@ function Home() {
       <KinkTeasers />
       <PowerDynamics />
       <ShopTeaser />
+      <Freebies />
       <Games />
       <FinalCTA />
       <SiteFooter />
