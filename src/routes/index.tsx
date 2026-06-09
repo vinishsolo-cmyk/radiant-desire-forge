@@ -439,20 +439,29 @@ function KinkTeasers() {
             <Link
               key={k.title}
               to="/kinks-explorer"
-              className="group bg-background p-10 block"
+              className="group relative bg-background block overflow-hidden"
             >
-              <span className="font-serif italic text-5xl text-primary/30">
-                0{i + 1}
-              </span>
-              <h3 className="mt-6 font-serif text-2xl md:text-[1.7rem] leading-tight group-hover:text-primary transition-colors">
-                {k.title}
-              </h3>
-              <p className="mt-4 text-muted-foreground leading-relaxed text-sm">
-                {k.desc}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary">
-                {k.cta} →
-              </span>
+              <img
+                src={k.img}
+                alt={k.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 transition-colors duration-500" />
+              <div className="relative p-10">
+                <span className="font-serif italic text-5xl text-primary/40 group-hover:text-background/90 transition-colors">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-6 font-serif text-2xl md:text-[1.7rem] leading-tight group-hover:text-background transition-colors">
+                  {k.title}
+                </h3>
+                <p className="mt-4 leading-relaxed text-sm text-muted-foreground group-hover:text-background/90 transition-colors">
+                  {k.desc}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary group-hover:text-background transition-colors">
+                  {k.cta} →
+                </span>
+              </div>
             </Link>
           ))}
         </div>
