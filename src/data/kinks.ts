@@ -211,4 +211,71 @@ export const kinkDetails: Record<string, KinkDetail> = {
       },
     ],
   },
+  "anal-play": {
+    slug: "anal-play",
+    title: "Anal Play",
+    subtitle: "Slow, lubricated, communicative — an honest, unhurried guide.",
+    intro:
+      "Anal play, done with patience and care, opens up a new map of pleasure for many adults. This guide moves slowly: anatomy first, then mindset, then practical steps. There is no rush, and there is nothing to prove.",
+    hero: "/placeholders/anal-play/anal-play1.jpg",
+    chapters: [
+      { id: "introduction", title: "Introduction" },
+      { id: "why-it-resonates", title: "Why It Resonates" },
+      { id: "anatomy", title: "Anatomy Basics" },
+      { id: "myths", title: "Myths & Truths" },
+      { id: "hygiene", title: "Hygiene & Preparation" },
+      { id: "lubricant", title: "The Right Lubricant" },
+      { id: "starting", title: "Starting Gently" },
+      { id: "communication", title: "Communication & Safewords" },
+      { id: "positions", title: "Comfortable Positions" },
+      { id: "toys", title: "Toys & Tools" },
+      { id: "aftercare", title: "Aftercare" },
+    ],
+    sections: [
+      { id: "introduction", title: "Introduction", image: "/placeholders/anal-play/anal-play1.jpg", paragraphs: [
+        "Anal play has stepped out of the shadows of taboo and into honest, adult conversation. For many couples it becomes a deeply intimate practice — not because of the act itself, but because of the trust and slowness it requires.",
+        "This guide assumes nothing. Whether you're curious for the first time or revisiting after a difficult experience, we start at the very beginning.",
+      ] },
+      { id: "why-it-resonates", title: "Why It Resonates", image: "/placeholders/anal-play/anal-play2.jpg", paragraphs: [
+        "The area is rich with nerve endings that often go unattended for a lifetime. When approached patiently, that neglect itself becomes part of the intensity.",
+        "There is also a quiet psychological pull — handing over a part of yourself you have always guarded. For many, that surrender is the actual pleasure, more than the physical sensation.",
+      ] },
+      { id: "anatomy", title: "Anatomy Basics", image: "/placeholders/anal-play/anal-play3.jpg", paragraphs: [
+        "Two ring-shaped muscles — the external and internal sphincters — guard the entrance. The external one you control. The internal one needs time and breath to relax.",
+        "Knowing this changes everything. There is nothing to 'force' open. The body opens when it feels safe.",
+      ] },
+      { id: "myths", title: "Myths & Truths", image: "/placeholders/anal-play/anal-play4.jpg", paragraphs: [
+        "Myth: it should hurt. Truth: pain is a signal to stop, breathe and add more lube. Discomfort is not the price of admission.",
+        "Myth: only certain people enjoy it. Truth: anyone with the relevant anatomy and the right pacing can find pleasure here.",
+      ] },
+      { id: "hygiene", title: "Hygiene & Preparation", image: "/placeholders/anal-play/anal-play5.jpg", paragraphs: [
+        "A normal shower is usually enough. For deeper play, some prefer a small bulb-rinse with plain warm water an hour beforehand — never harsh enemas.",
+        "Trim nails, wash hands, keep a soft towel and unscented wipes within reach. Treat the prep itself as part of foreplay, not an interruption.",
+      ] },
+      { id: "lubricant", title: "The Right Lubricant", image: "/placeholders/anal-play/anal-play6.jpg", paragraphs: [
+        "Use more than you think you need, then add more. A thick, water-based or silicone lubricant is ideal — silicone lasts longer but is not compatible with silicone toys.",
+        "Re-apply often. Friction is the enemy of comfort; lubricant is the doorway to sensation.",
+      ] },
+      { id: "starting", title: "Starting Gently", image: "/placeholders/anal-play/anal-play7.jpg", paragraphs: [
+        "Begin with a single, well-lubricated fingertip — and only after the body is already aroused from other touch. Press, pause, breathe. The external sphincter will tighten and then release in waves.",
+        "There is no goal for the first session except this: a small, calm, pleasurable yes. Stop while it is still good.",
+      ] },
+      { id: "communication", title: "Communication & Safewords", image: "/placeholders/anal-play/anal-play8.jpg", paragraphs: [
+        "Agree on the traffic-light system before you start. Green: more. Yellow: pause and check in. Red: stop now.",
+        "Speak more than usual. 'Slower,' 'pause,' 'a little more lube' — these are not interruptions, they are the practice itself.",
+      ] },
+      { id: "positions", title: "Comfortable Positions", image: "/placeholders/anal-play/anal-play1.jpg", paragraphs: [
+        "Side-lying (spooning) is the gentlest entry point: relaxed hips, easy eye contact over the shoulder, and the receiving partner controlling depth by pressing back at their own pace.",
+        "On the back with knees drawn up is another good option — it keeps the angle natural and lets you watch each other's faces.",
+      ] },
+      { id: "toys", title: "Toys & Tools", image: "/placeholders/anal-play/anal-play2.jpg", paragraphs: [
+        "Beginner toys should be small, smooth and have a flared base — non-negotiable, for safety. Body-safe silicone is the standard.",
+        "A small plug worn for short, comfortable sessions can help the body get used to gentle fullness before any other play.",
+      ] },
+      { id: "aftercare", title: "Aftercare", image: "/placeholders/anal-play/anal-play3.jpg", paragraphs: [
+        "Warm water, a soft blanket, slow touch, low light. A short conversation later about what felt good and what to adjust next time.",
+        "Treat the body kindly afterwards — gentle washing only, and a day of rest if anything feels tender. The body remembers care.",
+      ] },
+    ],
+  },
 };
