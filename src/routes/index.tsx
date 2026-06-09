@@ -483,19 +483,83 @@ function PowerDynamics() {
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {power.map((k, i) => (
-            <article key={k.title} className="group bg-background p-10">
-              <span className="font-serif italic text-5xl text-primary/30">
-                0{i + 1}
-              </span>
-              <h3 className="mt-6 font-serif text-2xl leading-tight group-hover:text-primary transition-colors">
-                {k.title}
-              </h3>
-              <p className="mt-4 text-muted-foreground leading-relaxed text-sm">
-                {k.desc}
-              </p>
-              <button className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary hover:underline">
-                Read more →
-              </button>
+            <article key={k.title} className="group relative bg-background overflow-hidden">
+              <img
+                src={k.img}
+                alt={k.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 transition-colors duration-500" />
+              <div className="relative p-10">
+                <span className="font-serif italic text-5xl text-primary/40 group-hover:text-background/90 transition-colors">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-6 font-serif text-2xl leading-tight group-hover:text-background transition-colors">
+                  {k.title}
+                </h3>
+                <p className="mt-4 leading-relaxed text-sm text-muted-foreground group-hover:text-background/90 transition-colors">
+                  {k.desc}
+                </p>
+                <button className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary group-hover:text-background transition-colors">
+                  Read more →
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Freebies() {
+  return (
+    <section id="freebies" className="py-24 md:py-32 border-b border-border/60">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div className="max-w-xl">
+            <p className="eyebrow">Free downloads</p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
+              Quick <em className="italic text-primary">freebies</em> to take home.
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Printable guides, audio meditations and worksheets — gentle starting
+              points you can download now, in complete privacy.
+            </p>
+          </div>
+          <a href="#freebies" className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary self-start md:self-end">
+            See all freebies →
+          </a>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          {freebies.map((f) => (
+            <article key={f.title} className="group bg-background flex flex-col">
+              <div className="aspect-[4/3] overflow-hidden bg-secondary relative">
+                <img
+                  src={f.img}
+                  alt={f.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-2 py-1 text-foreground">
+                  {f.tag}
+                </span>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="font-serif text-xl leading-tight group-hover:text-primary transition-colors">
+                  {f.title}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
+                  {f.desc}
+                </p>
+                <a
+                  href="#"
+                  className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground text-[11px] uppercase tracking-[0.25em] hover:bg-primary/90 transition-colors self-start"
+                >
+                  <Download size={13} /> Download free
+                </a>
+              </div>
             </article>
           ))}
         </div>
