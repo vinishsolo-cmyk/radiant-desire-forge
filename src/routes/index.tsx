@@ -28,44 +28,52 @@ const chapters = [
 ];
 
 const articles = [
-  { tag: "Hidden Desires", title: "10 Hidden Desires Many Women Have (But Rarely Talk About)", read: "8 min" },
-  { tag: "Pleasure", title: "What a Real, Mind-Blowing Orgasm Actually Feels Like", read: "11 min" },
-  { tag: "Public Play", title: "Dressing Hot in Public: How to Tease Him Without Saying a Word", read: "6 min" },
-  { tag: "Control", title: "Introducing Chastity to Your Man — A Woman's Complete Guide", read: "14 min" },
-  { tag: "Sharing", title: "Why Many Women Secretly Fantasize About Hotwifing & Cuckolding", read: "10 min" },
-  { tag: "Revival", title: "From Dead Bedroom to Hot Bedroom: How Kinks Can Save Your Marriage", read: "9 min" },
-  { tag: "Awakening", title: "Awakening Your Inner Slut: Embracing Your Wild Sexual Self", read: "12 min" },
-  { tag: "After 40", title: "How to Have Multiple Orgasms Every Time (Even After 40)", read: "10 min" },
+  { tag: "Hidden Desires", title: "10 Hidden Desires Many Women Have (But Rarely Talk About)", read: "8 min", img: "/placeholders/whispers/whispers1.jpg" },
+  { tag: "Pleasure", title: "What a Real, Mind-Blowing Orgasm Actually Feels Like", read: "11 min", img: "/placeholders/whispers/whispers2.jpg" },
+  { tag: "Public Play", title: "Dressing Hot in Public: How to Tease Him Without Saying a Word", read: "6 min", img: "/placeholders/whispers/whispers3.jpg" },
+  { tag: "Control", title: "Introducing Chastity to Your Man — A Woman's Complete Guide", read: "14 min", img: "/placeholders/whispers/whispers4.jpg" },
+  { tag: "Sharing", title: "Why Many Women Secretly Fantasize About Hotwifing & Cuckolding", read: "10 min", img: "/placeholders/whispers/whispers5.jpg" },
+  { tag: "Revival", title: "From Dead Bedroom to Hot Bedroom: How Kinks Can Save Your Marriage", read: "9 min", img: "/placeholders/whispers/whispers6.jpg" },
+  { tag: "Awakening", title: "Awakening Your Inner Slut: Embracing Your Wild Sexual Self", read: "12 min", img: "/placeholders/whispers/whispers7.jpg" },
+  { tag: "After 40", title: "How to Have Multiple Orgasms Every Time (Even After 40)", read: "10 min", img: "/placeholders/whispers/whispers8.jpg" },
 ];
 
 const whispers = [
-  { tag: "Confession", title: "The Night I Finally Asked For What I Wanted", read: "7 min" },
-  { tag: "Awakening", title: "How I Stopped Apologizing For My Hunger", read: "9 min" },
-  { tag: "Devotion", title: "He Knelt, And Everything Between Us Changed", read: "8 min" },
-  { tag: "Surrender", title: "The First Time I Let Go Completely", read: "10 min" },
-  { tag: "Power", title: "Becoming the Woman He Worships Daily", read: "11 min" },
-  { tag: "Freedom", title: "Why I Burned The Rules I Was Raised On", read: "9 min" },
-  { tag: "Ritual", title: "Our Sunday Mornings Look Nothing Like Before", read: "6 min" },
-  { tag: "Truth", title: "What Married Women Whisper After Midnight", read: "12 min" },
+  { tag: "Confession", title: "The Night I Finally Asked For What I Wanted", read: "7 min", img: "/placeholders/confessions/confessions1.jpg" },
+  { tag: "Awakening", title: "How I Stopped Apologizing For My Hunger", read: "9 min", img: "/placeholders/confessions/confessions2.jpg" },
+  { tag: "Devotion", title: "He Knelt, And Everything Between Us Changed", read: "8 min", img: "/placeholders/confessions/confessions3.jpg" },
+  { tag: "Surrender", title: "The First Time I Let Go Completely", read: "10 min", img: "/placeholders/confessions/confessions4.jpg" },
+  { tag: "Power", title: "Becoming the Woman He Worships Daily", read: "11 min", img: "/placeholders/confessions/confessions5.jpg" },
+  { tag: "Freedom", title: "Why I Burned The Rules I Was Raised On", read: "9 min", img: "/placeholders/confessions/confessions6.jpg" },
+  { tag: "Ritual", title: "Our Sunday Mornings Look Nothing Like Before", read: "6 min", img: "/placeholders/confessions/confessions7.jpg" },
+  { tag: "Truth", title: "What Married Women Whisper After Midnight", read: "12 min", img: "/placeholders/confessions/confessions8.jpg" },
 ];
 
 const kinks = [
-  { title: "Top 10 Kinks Women Crave But Hide", desc: "The fantasies that play in her mind when she's alone — finally named.", cta: "Reveal them" },
-  { title: "Top Couple Kinks to Explore Together", desc: "Where curiosity becomes connection. Start small. Go deep.", cta: "Explore together" },
-  { title: "Powerful Kinks for Female Pleasure & Control", desc: "Surrender, dominance, and the dance of power that ends in real bliss.", cta: "Take control" },
-  { title: "Chastity & Devotion: A Beginner's Path", desc: "How locking the key unlocks something far deeper between you.", cta: "Begin slowly" },
-  { title: "Sensory Play, Silk & Shadow", desc: "Blindfolds, whispers, slow hands — the art of patient pleasure.", cta: "Feel it all" },
-  { title: "Role Play & Hidden Personas", desc: "Become someone bolder for a night and rediscover yourself.", cta: "Try a role" },
+  { title: "Top 10 Kinks Women Crave But Hide", desc: "The fantasies that play in her mind when she's alone — finally named.", cta: "Reveal them", img: "/placeholders/kinks-teasers/kinks-teasers1.jpg" },
+  { title: "Top Couple Kinks to Explore Together", desc: "Where curiosity becomes connection. Start small. Go deep.", cta: "Explore together", img: "/placeholders/kinks-teasers/kinks-teasers2.jpg" },
+  { title: "Powerful Kinks for Female Pleasure & Control", desc: "Surrender, dominance, and the dance of power that ends in real bliss.", cta: "Take control", img: "/placeholders/kinks-teasers/kinks-teasers3.jpg" },
+  { title: "Chastity & Devotion: A Beginner's Path", desc: "How locking the key unlocks something far deeper between you.", cta: "Begin slowly", img: "/placeholders/kinks-teasers/kinks-teasers4.jpg" },
+  { title: "Sensory Play, Silk & Shadow", desc: "Blindfolds, whispers, slow hands — the art of patient pleasure.", cta: "Feel it all", img: "/placeholders/kinks-teasers/kinks-teasers5.jpg" },
+  { title: "Role Play & Hidden Personas", desc: "Become someone bolder for a night and rediscover yourself.", cta: "Try a role", img: "/placeholders/kinks-teasers/kinks-teasers6.jpg" },
 ];
 
 const power = [
-  { title: "Female-Led Relationships, Demystified", desc: "Lead with grace. Build a partnership where her pleasure sets the rhythm." },
-  { title: "The Art of Loving Dominance", desc: "Soft commands, firm boundaries, and the trust that makes them sing." },
-  { title: "Worship, Rituals & Daily Devotion", desc: "Small acts that turn ordinary days into quiet, devotional pleasure." },
-  { title: "Hotwife & Sharing Dynamics", desc: "Honest conversations about desire, jealousy, trust and growth." },
-  { title: "Cuckold Compersion, Done With Care", desc: "How love deepens when fantasy meets honesty and unwavering rules." },
-  { title: "Sissification & Soft Surrender", desc: "Tender play that lets him melt into your hands, completely yours." },
+  { title: "Female-Led Relationships, Demystified", desc: "Lead with grace. Build a partnership where her pleasure sets the rhythm.", img: "/placeholders/power/power1.jpg" },
+  { title: "The Art of Loving Dominance", desc: "Soft commands, firm boundaries, and the trust that makes them sing.", img: "/placeholders/power/power2.jpg" },
+  { title: "Worship, Rituals & Daily Devotion", desc: "Small acts that turn ordinary days into quiet, devotional pleasure.", img: "/placeholders/power/power3.jpg" },
+  { title: "Hotwife & Sharing Dynamics", desc: "Honest conversations about desire, jealousy, trust and growth.", img: "/placeholders/power/power4.jpg" },
+  { title: "Cuckold Compersion, Done With Care", desc: "How love deepens when fantasy meets honesty and unwavering rules.", img: "/placeholders/power/power5.jpg" },
+  { title: "Sissification & Soft Surrender", desc: "Tender play that lets him melt into your hands, completely yours.", img: "/placeholders/power/power6.jpg" },
 ];
+
+const freebies = [
+  { tag: "PDF · 12 pages", title: "The Beginner's Chastity Playbook", desc: "A printable starter guide with rituals, conversation scripts and a 30-day plan.", img: "/placeholders/freebies/freebies1.jpg" },
+  { tag: "Audio · 18 min", title: "Awakening Meditation for Her", desc: "A slow, guided audio to reconnect with desire — listen with headphones, in private.", img: "/placeholders/freebies/freebies2.jpg" },
+  { tag: "PDF · 6 pages", title: "Dirty Talk Card Deck", desc: "Printable cards with whispered prompts you can shuffle into any night.", img: "/placeholders/freebies/freebies3.jpg" },
+  { tag: "Worksheet", title: "The Desire Map: A Couple's Worksheet", desc: "A gentle questionnaire to discover what each of you secretly wants to try.", img: "/placeholders/freebies/freebies4.jpg" },
+];
+
 
 const products = [
   { name: "Whisper Wand", category: "Vibrator", badge: "Featured" },
