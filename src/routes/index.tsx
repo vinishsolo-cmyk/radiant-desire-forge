@@ -387,15 +387,27 @@ function Whispers() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {whispers.map((w) => (
-            <article key={w.title} className="group bg-background p-6 flex flex-col h-full">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-primary border border-primary/40 px-2 py-1 self-start">
-                {w.tag}
-              </span>
-              <h3 className="mt-6 font-serif text-xl leading-snug group-hover:text-primary transition-colors">
-                {w.title}
-              </h3>
-              <div className="mt-auto pt-6 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                {w.read} read
+            <article
+              key={w.title}
+              className="group relative bg-background overflow-hidden aspect-[3/4] flex flex-col justify-end"
+            >
+              <img
+                src={w.img}
+                alt={w.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent" />
+              <div className="relative p-6 flex flex-col h-full">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-background border border-background/60 px-2 py-1 self-start">
+                  {w.tag}
+                </span>
+                <h3 className="mt-auto font-serif text-xl leading-snug text-background drop-shadow">
+                  {w.title}
+                </h3>
+                <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-background/80">
+                  {w.read} read
+                </div>
               </div>
             </article>
           ))}
