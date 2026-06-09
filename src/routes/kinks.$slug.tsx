@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { azKinks, kinkDetails, type KinkDetail } from "@/data/kinks";
+import { azKinks, kinkDetails, top15Kinks, type KinkDetail } from "@/data/kinks";
 
 export const Route = createFileRoute("/kinks/$slug")({
   head: ({ params }) => {
@@ -40,32 +40,39 @@ export const Route = createFileRoute("/kinks/$slug")({
 });
 
 function buildFallback(slug: string): KinkDetail | null {
+  // Look in azKinks first
   for (const group of azKinks) {
     const item = group.items.find((i) => i.slug === slug);
-    if (!item) continue;
-    return {
-      slug: item.slug,
-      title: item.title,
-      subtitle: item.subtitle,
-      intro: item.excerpt,
-      hero: item.image,
-      chapters: [
-        { id: "introduction", title: "Introduction" },
-        { id: "psychology", title: "Why It Resonates" },
-        { id: "starting", title: "Starting Gently" },
-        { id: "communication", title: "Communication" },
-        { id: "aftercare", title: "Aftercare" },
-      ],
-      sections: [
-        { id: "introduction", title: "Introduction", image: item.image, paragraphs: [item.excerpt, "This is a placeholder guide. Replace these paragraphs with your own writing to build a full, rich page like the Bondage example."] },
-        { id: "psychology", title: "Why It Resonates", image: item.image, paragraphs: ["Why does this particular practice draw so many curious adults? A few notes on the emotional and psychological pull.", "Replace this section with your own perspective."] },
-        { id: "starting", title: "Starting Gently", image: item.image, paragraphs: ["The first time should always be the smallest version of the thing. A whisper, not a shout.", "Add your own beginner steps here."] },
-        { id: "communication", title: "Communication", image: item.image, paragraphs: ["Agree on words before you begin. Traffic-light system works for almost everyone.", "Customise this section to the practice."] },
-        { id: "aftercare", title: "Aftercare", image: item.image, paragraphs: ["A glass of water, a blanket, soft touch, low light. The nervous system needs a gentle landing.", "Write the closing ritual that fits this kink."] },
-      ],
-    };
+    if (item) return makeFallback(item.slug, item.title, item.subtitle, item.excerpt, item.image);
   }
+  // Then top15Kinks
+  const top = top15Kinks.find((t) => t.slug === slug);
+  if (top) return makeFallback(top.slug, top.title, top.paragraph, top.paragraph, top.image);
   return null;
+}
+
+function makeFallback(slug: string, title: string, subtitle: string, intro: string, image: string): KinkDetail {
+  return {
+    slug,
+    title,
+    subtitle,
+    intro,
+    hero: image,
+    chapters: [
+      { id: "introduction", title: "Introduction" },
+      { id: "psychology", title: "Why It Resonates" },
+      { id: "starting", title: "Starting Gently" },
+      { id: "communication", title: "Communication" },
+      { id: "aftercare", title: "Aftercare" },
+    ],
+    sections: [
+      { id: "introduction", title: "Introduction", image, paragraphs: [intro, "This is a placeholder guide. Replace these paragraphs with your own writing to build a full, rich page like the Bondage example."] },
+      { id: "psychology", title: "Why It Resonates", image, paragraphs: ["Why does this particular practice draw so many curious adults? A few notes on the emotional and psychological pull.", "Replace this section with your own perspective."] },
+      { id: "starting", title: "Starting Gently", image, paragraphs: ["The first time should always be the smallest version of the thing. A whisper, not a shout.", "Add your own beginner steps here."] },
+      { id: "communication", title: "Communication", image, paragraphs: ["Agree on words before you begin. Traffic-light system works for almost everyone.", "Customise this section to the practice."] },
+      { id: "aftercare", title: "Aftercare", image, paragraphs: ["A glass of water, a blanket, soft touch, low light. The nervous system needs a gentle landing.", "Write the closing ritual that fits this kink."] },
+    ],
+  };
 }
 
 function KinkDetailPage() {
@@ -117,6 +124,31 @@ function KinkDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* QUICK-NAV PILLS */}
+      <section className="border-b border-border/60 bg-secondary/30 sticky top-16 z-30 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <div className="flex items-center gap-3 overflow-x-auto scrollbar-none">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground shrink-0 pr-2 border-r border-border">
+              Jump to
+            </span>
+            {detail.chapters.map((c) => (
+              <a
+                key={c.id}
+                href={`#${c.id}`}
+                className={`shrink-0 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] border transition-colors ${
+                  c.id === activeId
+                    ? "bg-primary text-primary-foreground border-primary"
+                    : "border-border text-muted-foreground hover:border-primary/60 hover:text-primary"
+                }`}
+              >
+                {c.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* BODY w/ SIDEBAR */}
       <section className="py-20">

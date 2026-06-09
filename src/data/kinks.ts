@@ -5,24 +5,27 @@ export type Top15Kink = {
   trend: string;
   combo: string;
   explore: string;
+  image: string;
 };
 
+const t15 = (n: number) => `/placeholders/top15/top15${n}.jpg`;
+
 export const top15Kinks: Top15Kink[] = [
-  { slug: "flr", title: "Female Led Relationship", paragraph: "Commanding his world — intimate touches, daily rituals, pleasures — while he attends to your every desire. FLR turns the ordinary into delicious foreplay.", trend: "Growing among urban women seeking agency in modern marriages. Strongly tied to D/s dynamics.", combo: "Chastity + Orgasm Control.", explore: "FLR rules for couples, or consent workshops." },
-  { slug: "chastity", title: "Chastity (Keyholding)", paragraph: "You hold the key. He stays in sweet denial, his desperation fueling your power — and the eventual release belongs entirely to you.", trend: "Exploding in popularity, especially alongside FLR.", combo: "FLR + Orgasm Control.", explore: "Keyholder beginner guides." },
-  { slug: "hotwifing", title: "Cuckolding / Hotwifing", paragraph: "The thrill of knowing — or watching — a partner pleasure another. Renewed desire, sharper intimacy, total erotic freedom.", trend: "A notable metro-city rise via discreet communities.", combo: "Humiliation + Voyeurism.", explore: "Ethical hotwife communities." },
-  { slug: "exhibitionism", title: "Exhibitionism", paragraph: "The electric rush of being seen — teasing in semi-public, private photos, controlled reveals that make you feel irresistibly desired.", trend: "Active underground communities; explored safely in private settings.", combo: "Voyeurism + Semi-Public.", explore: "Ethical exhibitionism stories." },
-  { slug: "voyeurism", title: "Voyeurism", paragraph: "Heart pounding as you watch — or let yourself be watched — turning observation into pure arousal.", trend: "A very common fantasy with discreet metro communities.", combo: "Exhibitionism + Hotwifing.", explore: "Voyeurism couples guide." },
-  { slug: "ds247", title: "24/7 D/s Roles", paragraph: "Power exchange that flows beyond the bedroom — soft rules, daily texts, protocols that keep the spark alive all day.", trend: "Growing via digital communities and light daily integration.", combo: "Ownership + FLR.", explore: "24/7 D/s beginner guide." },
-  { slug: "group", title: "Sex Parties / Group Play", paragraph: "Elegant, consensual spaces where bodies, eyes and energies mingle — for variety, exhibition, and shared excitement.", trend: "Swinging and open dynamics rising in cities and beyond.", combo: "Exhibitionism + Voyeurism.", explore: "Private parties with consent." },
-  { slug: "humiliation", title: "Erotic Humiliation", paragraph: "Consensual teasing, charged words, and scenarios that make submission deliciously intense.", trend: "Linked strongly to cuckold/hotwife dynamics.", combo: "Cuckolding + Dirty Talk.", explore: "Humiliation boundaries & consent." },
-  { slug: "edging", title: "Orgasm Control & Edging", paragraph: "You control every peak and denial — teasing to the brink repeatedly for explosive buildup.", trend: "Pairs beautifully with chastity and FLR.", combo: "Chastity + Dirty Talk.", explore: "Edging techniques for her pleasure." },
-  { slug: "ownership", title: "Ownership Kink", paragraph: "Collars, soft leashes, the intoxicating word \u201cMine\u201d — deep possession that feels both safe and electrically erotic.", trend: "Core part of expanding D/s communities.", combo: "24/7 D/s + Chastity.", explore: "Ownership dynamic consent guide." },
-  { slug: "roleplay", title: "Role Play", paragraph: "Step into new skins — the dominant boss, the stranger, the royal temptress — and let fantasy amplify your chemistry.", trend: "One of the most common entry points to kink.", combo: "Humiliation + Dirty Talk.", explore: "Couple role play scenarios." },
-  { slug: "dirty-talk", title: "Dirty Talk", paragraph: "Whispers, commands, and fantasies spoken aloud that turn thoughts into instant heat.", trend: "An accessible and highly effective starter kink.", combo: "Role Play or Humiliation.", explore: "Dirty talk scripts for couples." },
-  { slug: "bdsm", title: "S&M / BDSM", paragraph: "Consensual intensity — pain that becomes pleasure, bondage, negotiated power exchange.", trend: "Strong global interest; safer education is growing.", combo: "Role Play + Ownership.", explore: "Safe BDSM for beginners." },
-  { slug: "toys", title: "Sex Toys & Tech", paragraph: "Remote-controlled toys, apps, and gadgets for long-distance teasing or synchronized pleasure.", trend: "Massive sales growth; technology eases exploration.", combo: "Orgasm Control + Public Play.", explore: "App-controlled toys for couples." },
-  { slug: "public", title: "Semi-Public + Jealousy Play", paragraph: "The adrenaline of risky locations combined with controlled flirting that sparks a hotter reconnection.", trend: "Widely fantasized and practiced discreetly.", combo: "Exhibitionism + Voyeurism.", explore: "Semi-public ideas; jealousy play rules." },
+  { slug: "flr", title: "Female Led Relationship", paragraph: "Commanding his world — intimate touches, daily rituals, pleasures — while he attends to your every desire. FLR turns the ordinary into delicious foreplay.", trend: "Growing among urban women seeking agency in modern marriages. Strongly tied to D/s dynamics.", combo: "Chastity + Orgasm Control.", explore: "FLR rules for couples, or consent workshops.", image: t15(1) },
+  { slug: "chastity-control", title: "Chastity (Keyholding)", paragraph: "You hold the key. He stays in sweet denial, his desperation fueling your power — and the eventual release belongs entirely to you.", trend: "Exploding in popularity, especially alongside FLR.", combo: "FLR + Orgasm Control.", explore: "Keyholder beginner guides.", image: t15(2) },
+  { slug: "hotwifing", title: "Cuckolding / Hotwifing", paragraph: "The thrill of knowing — or watching — a partner pleasure another. Renewed desire, sharper intimacy, total erotic freedom.", trend: "A notable metro-city rise via discreet communities.", combo: "Humiliation + Voyeurism.", explore: "Ethical hotwife communities.", image: t15(3) },
+  { slug: "exhibitionism", title: "Exhibitionism", paragraph: "The electric rush of being seen — teasing in semi-public, private photos, controlled reveals that make you feel irresistibly desired.", trend: "Active underground communities; explored safely in private settings.", combo: "Voyeurism + Semi-Public.", explore: "Ethical exhibitionism stories.", image: t15(4) },
+  { slug: "voyeurism", title: "Voyeurism", paragraph: "Heart pounding as you watch — or let yourself be watched — turning observation into pure arousal.", trend: "A very common fantasy with discreet metro communities.", combo: "Exhibitionism + Hotwifing.", explore: "Voyeurism couples guide.", image: t15(5) },
+  { slug: "ds247", title: "24/7 D/s Roles", paragraph: "Power exchange that flows beyond the bedroom — soft rules, daily texts, protocols that keep the spark alive all day.", trend: "Growing via digital communities and light daily integration.", combo: "Ownership + FLR.", explore: "24/7 D/s beginner guide.", image: t15(6) },
+  { slug: "group-play", title: "Sex Parties / Group Play", paragraph: "Elegant, consensual spaces where bodies, eyes and energies mingle — for variety, exhibition, and shared excitement.", trend: "Swinging and open dynamics rising in cities and beyond.", combo: "Exhibitionism + Voyeurism.", explore: "Private parties with consent.", image: t15(7) },
+  { slug: "humiliation", title: "Erotic Humiliation", paragraph: "Consensual teasing, charged words, and scenarios that make submission deliciously intense.", trend: "Linked strongly to cuckold/hotwife dynamics.", combo: "Cuckolding + Dirty Talk.", explore: "Humiliation boundaries & consent.", image: t15(8) },
+  { slug: "edging", title: "Orgasm Control & Edging", paragraph: "You control every peak and denial — teasing to the brink repeatedly for explosive buildup.", trend: "Pairs beautifully with chastity and FLR.", combo: "Chastity + Dirty Talk.", explore: "Edging techniques for her pleasure.", image: t15(1) },
+  { slug: "ownership", title: "Ownership Kink", paragraph: "Collars, soft leashes, the intoxicating word \u201cMine\u201d — deep possession that feels both safe and electrically erotic.", trend: "Core part of expanding D/s communities.", combo: "24/7 D/s + Chastity.", explore: "Ownership dynamic consent guide.", image: t15(2) },
+  { slug: "roleplay", title: "Role Play", paragraph: "Step into new skins — the dominant boss, the stranger, the royal temptress — and let fantasy amplify your chemistry.", trend: "One of the most common entry points to kink.", combo: "Humiliation + Dirty Talk.", explore: "Couple role play scenarios.", image: t15(3) },
+  { slug: "dirty-talk", title: "Dirty Talk", paragraph: "Whispers, commands, and fantasies spoken aloud that turn thoughts into instant heat.", trend: "An accessible and highly effective starter kink.", combo: "Role Play or Humiliation.", explore: "Dirty talk scripts for couples.", image: t15(4) },
+  { slug: "bdsm", title: "S&M / BDSM", paragraph: "Consensual intensity — pain that becomes pleasure, bondage, negotiated power exchange.", trend: "Strong global interest; safer education is growing.", combo: "Role Play + Ownership.", explore: "Safe BDSM for beginners.", image: t15(5) },
+  { slug: "toys", title: "Sex Toys & Tech", paragraph: "Remote-controlled toys, apps, and gadgets for long-distance teasing or synchronized pleasure.", trend: "Massive sales growth; technology eases exploration.", combo: "Orgasm Control + Public Play.", explore: "App-controlled toys for couples.", image: t15(6) },
+  { slug: "public", title: "Semi-Public + Jealousy Play", paragraph: "The adrenaline of risky locations combined with controlled flirting that sparks a hotter reconnection.", trend: "Widely fantasized and practiced discreetly.", combo: "Exhibitionism + Voyeurism.", explore: "Semi-public ideas; jealousy play rules.", image: t15(7) },
 ];
 
 export type AzItem = {
@@ -206,6 +209,73 @@ export const kinkDetails: Record<string, KinkDetail> = {
           "Whatever direction you go, the principles never change: consent, patience, presence, aftercare. The ropes are only the surface of the practice.",
         ],
       },
+    ],
+  },
+  "anal-play": {
+    slug: "anal-play",
+    title: "Anal Play",
+    subtitle: "Slow, lubricated, communicative — an honest, unhurried guide.",
+    intro:
+      "Anal play, done with patience and care, opens up a new map of pleasure for many adults. This guide moves slowly: anatomy first, then mindset, then practical steps. There is no rush, and there is nothing to prove.",
+    hero: "/placeholders/anal-play/anal-play1.jpg",
+    chapters: [
+      { id: "introduction", title: "Introduction" },
+      { id: "why-it-resonates", title: "Why It Resonates" },
+      { id: "anatomy", title: "Anatomy Basics" },
+      { id: "myths", title: "Myths & Truths" },
+      { id: "hygiene", title: "Hygiene & Preparation" },
+      { id: "lubricant", title: "The Right Lubricant" },
+      { id: "starting", title: "Starting Gently" },
+      { id: "communication", title: "Communication & Safewords" },
+      { id: "positions", title: "Comfortable Positions" },
+      { id: "toys", title: "Toys & Tools" },
+      { id: "aftercare", title: "Aftercare" },
+    ],
+    sections: [
+      { id: "introduction", title: "Introduction", image: "/placeholders/anal-play/anal-play1.jpg", paragraphs: [
+        "Anal play has stepped out of the shadows of taboo and into honest, adult conversation. For many couples it becomes a deeply intimate practice — not because of the act itself, but because of the trust and slowness it requires.",
+        "This guide assumes nothing. Whether you're curious for the first time or revisiting after a difficult experience, we start at the very beginning.",
+      ] },
+      { id: "why-it-resonates", title: "Why It Resonates", image: "/placeholders/anal-play/anal-play2.jpg", paragraphs: [
+        "The area is rich with nerve endings that often go unattended for a lifetime. When approached patiently, that neglect itself becomes part of the intensity.",
+        "There is also a quiet psychological pull — handing over a part of yourself you have always guarded. For many, that surrender is the actual pleasure, more than the physical sensation.",
+      ] },
+      { id: "anatomy", title: "Anatomy Basics", image: "/placeholders/anal-play/anal-play3.jpg", paragraphs: [
+        "Two ring-shaped muscles — the external and internal sphincters — guard the entrance. The external one you control. The internal one needs time and breath to relax.",
+        "Knowing this changes everything. There is nothing to 'force' open. The body opens when it feels safe.",
+      ] },
+      { id: "myths", title: "Myths & Truths", image: "/placeholders/anal-play/anal-play4.jpg", paragraphs: [
+        "Myth: it should hurt. Truth: pain is a signal to stop, breathe and add more lube. Discomfort is not the price of admission.",
+        "Myth: only certain people enjoy it. Truth: anyone with the relevant anatomy and the right pacing can find pleasure here.",
+      ] },
+      { id: "hygiene", title: "Hygiene & Preparation", image: "/placeholders/anal-play/anal-play5.jpg", paragraphs: [
+        "A normal shower is usually enough. For deeper play, some prefer a small bulb-rinse with plain warm water an hour beforehand — never harsh enemas.",
+        "Trim nails, wash hands, keep a soft towel and unscented wipes within reach. Treat the prep itself as part of foreplay, not an interruption.",
+      ] },
+      { id: "lubricant", title: "The Right Lubricant", image: "/placeholders/anal-play/anal-play6.jpg", paragraphs: [
+        "Use more than you think you need, then add more. A thick, water-based or silicone lubricant is ideal — silicone lasts longer but is not compatible with silicone toys.",
+        "Re-apply often. Friction is the enemy of comfort; lubricant is the doorway to sensation.",
+      ] },
+      { id: "starting", title: "Starting Gently", image: "/placeholders/anal-play/anal-play7.jpg", paragraphs: [
+        "Begin with a single, well-lubricated fingertip — and only after the body is already aroused from other touch. Press, pause, breathe. The external sphincter will tighten and then release in waves.",
+        "There is no goal for the first session except this: a small, calm, pleasurable yes. Stop while it is still good.",
+      ] },
+      { id: "communication", title: "Communication & Safewords", image: "/placeholders/anal-play/anal-play8.jpg", paragraphs: [
+        "Agree on the traffic-light system before you start. Green: more. Yellow: pause and check in. Red: stop now.",
+        "Speak more than usual. 'Slower,' 'pause,' 'a little more lube' — these are not interruptions, they are the practice itself.",
+      ] },
+      { id: "positions", title: "Comfortable Positions", image: "/placeholders/anal-play/anal-play1.jpg", paragraphs: [
+        "Side-lying (spooning) is the gentlest entry point: relaxed hips, easy eye contact over the shoulder, and the receiving partner controlling depth by pressing back at their own pace.",
+        "On the back with knees drawn up is another good option — it keeps the angle natural and lets you watch each other's faces.",
+      ] },
+      { id: "toys", title: "Toys & Tools", image: "/placeholders/anal-play/anal-play2.jpg", paragraphs: [
+        "Beginner toys should be small, smooth and have a flared base — non-negotiable, for safety. Body-safe silicone is the standard.",
+        "A small plug worn for short, comfortable sessions can help the body get used to gentle fullness before any other play.",
+      ] },
+      { id: "aftercare", title: "Aftercare", image: "/placeholders/anal-play/anal-play3.jpg", paragraphs: [
+        "Warm water, a soft blanket, slow touch, low light. A short conversation later about what felt good and what to adjust next time.",
+        "Treat the body kindly afterwards — gentle washing only, and a day of rest if anything feels tender. The body remembers care.",
+      ] },
     ],
   },
 };

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
@@ -28,44 +28,52 @@ const chapters = [
 ];
 
 const articles = [
-  { tag: "Hidden Desires", title: "10 Hidden Desires Many Women Have (But Rarely Talk About)", read: "8 min" },
-  { tag: "Pleasure", title: "What a Real, Mind-Blowing Orgasm Actually Feels Like", read: "11 min" },
-  { tag: "Public Play", title: "Dressing Hot in Public: How to Tease Him Without Saying a Word", read: "6 min" },
-  { tag: "Control", title: "Introducing Chastity to Your Man — A Woman's Complete Guide", read: "14 min" },
-  { tag: "Sharing", title: "Why Many Women Secretly Fantasize About Hotwifing & Cuckolding", read: "10 min" },
-  { tag: "Revival", title: "From Dead Bedroom to Hot Bedroom: How Kinks Can Save Your Marriage", read: "9 min" },
-  { tag: "Awakening", title: "Awakening Your Inner Slut: Embracing Your Wild Sexual Self", read: "12 min" },
-  { tag: "After 40", title: "How to Have Multiple Orgasms Every Time (Even After 40)", read: "10 min" },
+  { tag: "Hidden Desires", title: "10 Hidden Desires Many Women Have (But Rarely Talk About)", read: "8 min", img: "/placeholders/whispers/whispers1.jpg" },
+  { tag: "Pleasure", title: "What a Real, Mind-Blowing Orgasm Actually Feels Like", read: "11 min", img: "/placeholders/whispers/whispers2.jpg" },
+  { tag: "Public Play", title: "Dressing Hot in Public: How to Tease Him Without Saying a Word", read: "6 min", img: "/placeholders/whispers/whispers3.jpg" },
+  { tag: "Control", title: "Introducing Chastity to Your Man — A Woman's Complete Guide", read: "14 min", img: "/placeholders/whispers/whispers4.jpg" },
+  { tag: "Sharing", title: "Why Many Women Secretly Fantasize About Hotwifing & Cuckolding", read: "10 min", img: "/placeholders/whispers/whispers5.jpg" },
+  { tag: "Revival", title: "From Dead Bedroom to Hot Bedroom: How Kinks Can Save Your Marriage", read: "9 min", img: "/placeholders/whispers/whispers6.jpg" },
+  { tag: "Awakening", title: "Awakening Your Inner Slut: Embracing Your Wild Sexual Self", read: "12 min", img: "/placeholders/whispers/whispers7.jpg" },
+  { tag: "After 40", title: "How to Have Multiple Orgasms Every Time (Even After 40)", read: "10 min", img: "/placeholders/whispers/whispers8.jpg" },
 ];
 
 const whispers = [
-  { tag: "Confession", title: "The Night I Finally Asked For What I Wanted", read: "7 min" },
-  { tag: "Awakening", title: "How I Stopped Apologizing For My Hunger", read: "9 min" },
-  { tag: "Devotion", title: "He Knelt, And Everything Between Us Changed", read: "8 min" },
-  { tag: "Surrender", title: "The First Time I Let Go Completely", read: "10 min" },
-  { tag: "Power", title: "Becoming the Woman He Worships Daily", read: "11 min" },
-  { tag: "Freedom", title: "Why I Burned The Rules I Was Raised On", read: "9 min" },
-  { tag: "Ritual", title: "Our Sunday Mornings Look Nothing Like Before", read: "6 min" },
-  { tag: "Truth", title: "What Married Women Whisper After Midnight", read: "12 min" },
+  { tag: "Confession", title: "The Night I Finally Asked For What I Wanted", read: "7 min", img: "/placeholders/confessions/confessions1.jpg" },
+  { tag: "Awakening", title: "How I Stopped Apologizing For My Hunger", read: "9 min", img: "/placeholders/confessions/confessions2.jpg" },
+  { tag: "Devotion", title: "He Knelt, And Everything Between Us Changed", read: "8 min", img: "/placeholders/confessions/confessions3.jpg" },
+  { tag: "Surrender", title: "The First Time I Let Go Completely", read: "10 min", img: "/placeholders/confessions/confessions4.jpg" },
+  { tag: "Power", title: "Becoming the Woman He Worships Daily", read: "11 min", img: "/placeholders/confessions/confessions5.jpg" },
+  { tag: "Freedom", title: "Why I Burned The Rules I Was Raised On", read: "9 min", img: "/placeholders/confessions/confessions6.jpg" },
+  { tag: "Ritual", title: "Our Sunday Mornings Look Nothing Like Before", read: "6 min", img: "/placeholders/confessions/confessions7.jpg" },
+  { tag: "Truth", title: "What Married Women Whisper After Midnight", read: "12 min", img: "/placeholders/confessions/confessions8.jpg" },
 ];
 
 const kinks = [
-  { title: "Top 10 Kinks Women Crave But Hide", desc: "The fantasies that play in her mind when she's alone — finally named.", cta: "Reveal them" },
-  { title: "Top Couple Kinks to Explore Together", desc: "Where curiosity becomes connection. Start small. Go deep.", cta: "Explore together" },
-  { title: "Powerful Kinks for Female Pleasure & Control", desc: "Surrender, dominance, and the dance of power that ends in real bliss.", cta: "Take control" },
-  { title: "Chastity & Devotion: A Beginner's Path", desc: "How locking the key unlocks something far deeper between you.", cta: "Begin slowly" },
-  { title: "Sensory Play, Silk & Shadow", desc: "Blindfolds, whispers, slow hands — the art of patient pleasure.", cta: "Feel it all" },
-  { title: "Role Play & Hidden Personas", desc: "Become someone bolder for a night and rediscover yourself.", cta: "Try a role" },
+  { title: "Top 10 Kinks Women Crave But Hide", desc: "The fantasies that play in her mind when she's alone — finally named.", cta: "Reveal them", img: "/placeholders/kinks-teasers/kinks-teasers1.jpg" },
+  { title: "Top Couple Kinks to Explore Together", desc: "Where curiosity becomes connection. Start small. Go deep.", cta: "Explore together", img: "/placeholders/kinks-teasers/kinks-teasers2.jpg" },
+  { title: "Powerful Kinks for Female Pleasure & Control", desc: "Surrender, dominance, and the dance of power that ends in real bliss.", cta: "Take control", img: "/placeholders/kinks-teasers/kinks-teasers3.jpg" },
+  { title: "Chastity & Devotion: A Beginner's Path", desc: "How locking the key unlocks something far deeper between you.", cta: "Begin slowly", img: "/placeholders/kinks-teasers/kinks-teasers4.jpg" },
+  { title: "Sensory Play, Silk & Shadow", desc: "Blindfolds, whispers, slow hands — the art of patient pleasure.", cta: "Feel it all", img: "/placeholders/kinks-teasers/kinks-teasers5.jpg" },
+  { title: "Role Play & Hidden Personas", desc: "Become someone bolder for a night and rediscover yourself.", cta: "Try a role", img: "/placeholders/kinks-teasers/kinks-teasers6.jpg" },
 ];
 
 const power = [
-  { title: "Female-Led Relationships, Demystified", desc: "Lead with grace. Build a partnership where her pleasure sets the rhythm." },
-  { title: "The Art of Loving Dominance", desc: "Soft commands, firm boundaries, and the trust that makes them sing." },
-  { title: "Worship, Rituals & Daily Devotion", desc: "Small acts that turn ordinary days into quiet, devotional pleasure." },
-  { title: "Hotwife & Sharing Dynamics", desc: "Honest conversations about desire, jealousy, trust and growth." },
-  { title: "Cuckold Compersion, Done With Care", desc: "How love deepens when fantasy meets honesty and unwavering rules." },
-  { title: "Sissification & Soft Surrender", desc: "Tender play that lets him melt into your hands, completely yours." },
+  { title: "Female-Led Relationships, Demystified", desc: "Lead with grace. Build a partnership where her pleasure sets the rhythm.", img: "/placeholders/power/power1.jpg" },
+  { title: "The Art of Loving Dominance", desc: "Soft commands, firm boundaries, and the trust that makes them sing.", img: "/placeholders/power/power2.jpg" },
+  { title: "Worship, Rituals & Daily Devotion", desc: "Small acts that turn ordinary days into quiet, devotional pleasure.", img: "/placeholders/power/power3.jpg" },
+  { title: "Hotwife & Sharing Dynamics", desc: "Honest conversations about desire, jealousy, trust and growth.", img: "/placeholders/power/power4.jpg" },
+  { title: "Cuckold Compersion, Done With Care", desc: "How love deepens when fantasy meets honesty and unwavering rules.", img: "/placeholders/power/power5.jpg" },
+  { title: "Sissification & Soft Surrender", desc: "Tender play that lets him melt into your hands, completely yours.", img: "/placeholders/power/power6.jpg" },
 ];
+
+const freebies = [
+  { tag: "PDF · 12 pages", title: "The Beginner's Chastity Playbook", desc: "A printable starter guide with rituals, conversation scripts and a 30-day plan.", img: "/placeholders/freebies/freebies1.jpg" },
+  { tag: "Audio · 18 min", title: "Awakening Meditation for Her", desc: "A slow, guided audio to reconnect with desire — listen with headphones, in private.", img: "/placeholders/freebies/freebies2.jpg" },
+  { tag: "PDF · 6 pages", title: "Dirty Talk Card Deck", desc: "Printable cards with whispered prompts you can shuffle into any night.", img: "/placeholders/freebies/freebies3.jpg" },
+  { tag: "Worksheet", title: "The Desire Map: A Couple's Worksheet", desc: "A gentle questionnaire to discover what each of you secretly wants to try.", img: "/placeholders/freebies/freebies4.jpg" },
+];
+
 
 const products = [
   { name: "Whisper Wand", category: "Vibrator", badge: "Featured" },
@@ -96,6 +104,7 @@ function Home() {
       <KinkTeasers />
       <PowerDynamics />
       <ShopTeaser />
+      <Freebies />
       <Games />
       <FinalCTA />
       <SiteFooter />
@@ -329,16 +338,28 @@ function Trending() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {articles.map((a) => (
-            <article key={a.title} className="group bg-background p-6 flex flex-col h-full">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-primary border border-primary/40 px-2 py-1 self-start">
-                {a.tag}
-              </span>
-              <h3 className="mt-6 font-serif text-xl leading-snug group-hover:text-primary transition-colors">
-                {a.title}
-              </h3>
-              <div className="mt-auto pt-6 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>{a.read} read</span>
-                <ArrowUpRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+            <article
+              key={a.title}
+              className="group relative bg-background overflow-hidden aspect-[3/4] flex flex-col justify-end"
+            >
+              <img
+                src={a.img}
+                alt={a.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/70 to-foreground/10" />
+              <div className="relative p-6 flex flex-col h-full">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-background border border-background/60 px-2 py-1 self-start backdrop-blur-sm">
+                  {a.tag}
+                </span>
+                <h3 className="mt-auto font-serif text-xl leading-snug text-background drop-shadow">
+                  {a.title}
+                </h3>
+                <div className="mt-4 pt-3 border-t border-background/20 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-background/80">
+                  <span>{a.read} read</span>
+                  <ArrowUpRight size={14} className="text-background opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </div>
               </div>
             </article>
           ))}
@@ -366,15 +387,27 @@ function Whispers() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {whispers.map((w) => (
-            <article key={w.title} className="group bg-background p-6 flex flex-col h-full">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-primary border border-primary/40 px-2 py-1 self-start">
-                {w.tag}
-              </span>
-              <h3 className="mt-6 font-serif text-xl leading-snug group-hover:text-primary transition-colors">
-                {w.title}
-              </h3>
-              <div className="mt-auto pt-6 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                {w.read} read
+            <article
+              key={w.title}
+              className="group relative bg-background overflow-hidden aspect-[3/4] flex flex-col justify-end"
+            >
+              <img
+                src={w.img}
+                alt={w.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent" />
+              <div className="relative p-6 flex flex-col h-full">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-background border border-background/60 px-2 py-1 self-start">
+                  {w.tag}
+                </span>
+                <h3 className="mt-auto font-serif text-xl leading-snug text-background drop-shadow">
+                  {w.title}
+                </h3>
+                <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-background/80">
+                  {w.read} read
+                </div>
               </div>
             </article>
           ))}
@@ -406,20 +439,29 @@ function KinkTeasers() {
             <Link
               key={k.title}
               to="/kinks-explorer"
-              className="group bg-background p-10 block"
+              className="group relative bg-background block overflow-hidden"
             >
-              <span className="font-serif italic text-5xl text-primary/30">
-                0{i + 1}
-              </span>
-              <h3 className="mt-6 font-serif text-2xl md:text-[1.7rem] leading-tight group-hover:text-primary transition-colors">
-                {k.title}
-              </h3>
-              <p className="mt-4 text-muted-foreground leading-relaxed text-sm">
-                {k.desc}
-              </p>
-              <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary">
-                {k.cta} →
-              </span>
+              <img
+                src={k.img}
+                alt={k.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 transition-colors duration-500" />
+              <div className="relative p-10">
+                <span className="font-serif italic text-5xl text-primary/40 group-hover:text-background/90 transition-colors">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-6 font-serif text-2xl md:text-[1.7rem] leading-tight group-hover:text-background transition-colors">
+                  {k.title}
+                </h3>
+                <p className="mt-4 leading-relaxed text-sm text-muted-foreground group-hover:text-background/90 transition-colors">
+                  {k.desc}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary group-hover:text-background transition-colors">
+                  {k.cta} →
+                </span>
+              </div>
             </Link>
           ))}
         </div>
@@ -441,19 +483,83 @@ function PowerDynamics() {
         </div>
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {power.map((k, i) => (
-            <article key={k.title} className="group bg-background p-10">
-              <span className="font-serif italic text-5xl text-primary/30">
-                0{i + 1}
-              </span>
-              <h3 className="mt-6 font-serif text-2xl leading-tight group-hover:text-primary transition-colors">
-                {k.title}
-              </h3>
-              <p className="mt-4 text-muted-foreground leading-relaxed text-sm">
-                {k.desc}
-              </p>
-              <button className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary hover:underline">
-                Read more →
-              </button>
+            <article key={k.title} className="group relative bg-background overflow-hidden">
+              <img
+                src={k.img}
+                alt={k.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 scale-105 group-hover:scale-100"
+              />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/55 transition-colors duration-500" />
+              <div className="relative p-10">
+                <span className="font-serif italic text-5xl text-primary/40 group-hover:text-background/90 transition-colors">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-6 font-serif text-2xl leading-tight group-hover:text-background transition-colors">
+                  {k.title}
+                </h3>
+                <p className="mt-4 leading-relaxed text-sm text-muted-foreground group-hover:text-background/90 transition-colors">
+                  {k.desc}
+                </p>
+                <button className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary group-hover:text-background transition-colors">
+                  Read more →
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Freebies() {
+  return (
+    <section id="freebies" className="py-24 md:py-32 border-b border-border/60">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div className="max-w-xl">
+            <p className="eyebrow">Free downloads</p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
+              Quick <em className="italic text-primary">freebies</em> to take home.
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Printable guides, audio meditations and worksheets — gentle starting
+              points you can download now, in complete privacy.
+            </p>
+          </div>
+          <a href="#freebies" className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary self-start md:self-end">
+            See all freebies →
+          </a>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          {freebies.map((f) => (
+            <article key={f.title} className="group bg-background flex flex-col">
+              <div className="aspect-[4/3] overflow-hidden bg-secondary relative">
+                <img
+                  src={f.img}
+                  alt={f.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] bg-background/90 backdrop-blur px-2 py-1 text-foreground">
+                  {f.tag}
+                </span>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="font-serif text-xl leading-tight group-hover:text-primary transition-colors">
+                  {f.title}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
+                  {f.desc}
+                </p>
+                <a
+                  href="#"
+                  className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground text-[11px] uppercase tracking-[0.25em] hover:bg-primary/90 transition-colors self-start"
+                >
+                  <Download size={13} /> Download free
+                </a>
+              </div>
             </article>
           ))}
         </div>

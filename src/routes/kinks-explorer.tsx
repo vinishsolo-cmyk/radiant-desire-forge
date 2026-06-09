@@ -124,14 +124,34 @@ function KinksExplorer() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {top15Kinks.map((k, i) => (
-              <article key={k.slug} className="bg-background p-7 flex flex-col">
-                <p className="font-serif italic text-2xl text-primary">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-3 font-serif text-2xl leading-tight">{k.title}</h3>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{k.paragraph}</p>
-                <div className="mt-5 pl-4 border-l border-primary/40 text-[13px] text-foreground/70 leading-relaxed">
-                  <p><span className="uppercase tracking-[0.18em] text-[10px] text-primary mr-2">Trend</span>{k.trend}</p>
-                  <p className="mt-2"><span className="uppercase tracking-[0.18em] text-[10px] text-primary mr-2">Combo</span>{k.combo}</p>
-                  <p className="mt-2 italic"><span className="uppercase tracking-[0.18em] text-[10px] not-italic text-primary mr-2">Explore</span>{k.explore}</p>
+              <article key={k.slug} className="group bg-background flex flex-col">
+                <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                  <img
+                    src={k.image}
+                    alt={k.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
+                  <p className="absolute top-3 left-3 font-serif italic text-2xl text-background drop-shadow">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                </div>
+                <div className="p-7 flex flex-col flex-1">
+                  <h3 className="font-serif text-2xl leading-tight group-hover:text-primary transition-colors">{k.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{k.paragraph}</p>
+                  <div className="mt-4 pl-4 border-l border-primary/40 text-[13px] text-foreground/70 leading-relaxed">
+                    <p><span className="uppercase tracking-[0.18em] text-[10px] text-primary mr-2">Trend</span>{k.trend}</p>
+                    <p className="mt-1"><span className="uppercase tracking-[0.18em] text-[10px] text-primary mr-2">Combo</span>{k.combo}</p>
+                    <p className="mt-1 italic"><span className="uppercase tracking-[0.18em] text-[10px] not-italic text-primary mr-2">Explore</span>{k.explore}</p>
+                  </div>
+                  <Link
+                    to="/kinks/$slug"
+                    params={{ slug: k.slug }}
+                    className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary hover:gap-3 transition-all self-start"
+                  >
+                    <BookOpen size={14} /> Know more <ArrowRight size={14} />
+                  </Link>
                 </div>
               </article>
             ))}
