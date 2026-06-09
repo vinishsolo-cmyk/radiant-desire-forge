@@ -338,16 +338,28 @@ function Trending() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {articles.map((a) => (
-            <article key={a.title} className="group bg-background p-6 flex flex-col h-full">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-primary border border-primary/40 px-2 py-1 self-start">
-                {a.tag}
-              </span>
-              <h3 className="mt-6 font-serif text-xl leading-snug group-hover:text-primary transition-colors">
-                {a.title}
-              </h3>
-              <div className="mt-auto pt-6 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                <span>{a.read} read</span>
-                <ArrowUpRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+            <article
+              key={a.title}
+              className="group relative bg-background overflow-hidden aspect-[3/4] flex flex-col justify-end"
+            >
+              <img
+                src={a.img}
+                alt={a.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/70 to-foreground/10" />
+              <div className="relative p-6 flex flex-col h-full">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-background border border-background/60 px-2 py-1 self-start backdrop-blur-sm">
+                  {a.tag}
+                </span>
+                <h3 className="mt-auto font-serif text-xl leading-snug text-background drop-shadow">
+                  {a.title}
+                </h3>
+                <div className="mt-4 pt-3 border-t border-background/20 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-background/80">
+                  <span>{a.read} read</span>
+                  <ArrowUpRight size={14} className="text-background opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </div>
               </div>
             </article>
           ))}
