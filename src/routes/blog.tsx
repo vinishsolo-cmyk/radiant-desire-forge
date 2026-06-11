@@ -65,7 +65,7 @@ function BlogIndex() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              navigate({ search: (p) => ({ ...p, q }) });
+              navigate({ search: (p: { q: string; topic: string; tag: string }) => ({ ...p, q }) });
             }}
             className="mt-8 flex items-center gap-2 max-w-xl border border-border bg-card px-4 py-3"
           >
@@ -81,7 +81,7 @@ function BlogIndex() {
                 type="button"
                 onClick={() => {
                   setQ("");
-                  navigate({ search: (p) => ({ ...p, q: "" }) });
+                  navigate({ search: (p: { q: string; topic: string; tag: string }) => ({ ...p, q: "" }) });
                 }}
                 aria-label="Clear"
                 className="text-muted-foreground hover:text-primary"
@@ -114,20 +114,20 @@ function BlogIndex() {
                     label={`“${search.q}”`}
                     onClear={() => {
                       setQ("");
-                      navigate({ search: (p) => ({ ...p, q: "" }) });
+                      navigate({ search: (p: { q: string; topic: string; tag: string }) => ({ ...p, q: "" }) });
                     }}
                   />
                 )}
                 {search.topic && (
                   <Chip
                     label={search.topic}
-                    onClear={() => navigate({ search: (p) => ({ ...p, topic: "" }) })}
+                    onClear={() => navigate({ search: (p: { q: string; topic: string; tag: string }) => ({ ...p, topic: "" }) })}
                   />
                 )}
                 {search.tag && (
                   <Chip
                     label={`#${search.tag}`}
-                    onClear={() => navigate({ search: (p) => ({ ...p, tag: "" }) })}
+                    onClear={() => navigate({ search: (p: { q: string; topic: string; tag: string }) => ({ ...p, tag: "" }) })}
                   />
                 )}
                 <button
@@ -242,7 +242,7 @@ function BlogIndex() {
                       <button
                         onClick={() =>
                           navigate({
-                            search: (p) => ({ ...p, topic: active ? "" : t }),
+                            search: (p: { q: string; topic: string; tag: string }) => ({ ...p, topic: active ? "" : t }),
                           })
                         }
                         className={`w-full text-left flex items-center justify-between py-2 text-sm border-b border-border/60 transition-colors ${
@@ -268,7 +268,7 @@ function BlogIndex() {
                       key={t}
                       onClick={() =>
                         navigate({
-                          search: (p) => ({ ...p, tag: active ? "" : t }),
+                          search: (p: { q: string; topic: string; tag: string }) => ({ ...p, tag: active ? "" : t }),
                         })
                       }
                       className={`text-[11px] uppercase tracking-[0.18em] px-2.5 py-1 border transition-colors ${
