@@ -152,6 +152,9 @@ export function SiteNav() {
               />
             </form>
           </li>
+          {NAV.map((item) => (
+            <li key={item.href}>
+              {item.href.startsWith("/#") ? (
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
