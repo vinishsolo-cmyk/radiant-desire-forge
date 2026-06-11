@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -10,7 +10,7 @@ const NAV = [
   { label: "Kinks Explorer", href: "/kinks-explorer" },
   { label: "Games for Couples", href: "/#games" },
   { label: "Resources & Freebies", href: "/#resources" },
-  { label: "Blog / Stories", href: "/#blog" },
+  { label: "Blog / Stories", href: "/blog" },
   { label: "About Us", href: "/#about" },
   { label: "Contact / Consultations", href: "/#contact" },
 ];
@@ -18,6 +18,9 @@ const NAV = [
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [q, setQ] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,6 +28,14 @@ export function SiteNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const submitSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = q.trim();
+    navigate({ to: "/blog", search: { q: query, topic: "", tag: "" } });
+    setSearchOpen(false);
+    setOpen(false);
+  };
 
   return (
     <header
@@ -64,12 +75,21 @@ export function SiteNav() {
           )}
         </ul>
 
-        <a
-          href="/#contact"
-          className="hidden xl:inline-flex items-center text-[11px] uppercase tracking-[0.25em] px-5 py-2.5 border border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500"
-        >
-          Consult
-        </a>
+        <div className="hidden xl:flex items-center gap-3">
+          <button
+            aria-label="Search"
+            onClick={() => setSearchOpen((v) => !v)}
+            className="p-2 text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Search size={16} />
+          </button>
+          <a
+            href="/#contact"
+            className="inline-flex items-center text-[11px] uppercase tracking-[0.25em] px-5 py-2.5 border border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500"
+          >
+            Consult
+          </a>
+        </div>
 
         <button
           aria-label={open ? "Close menu" : "Open menu"}
