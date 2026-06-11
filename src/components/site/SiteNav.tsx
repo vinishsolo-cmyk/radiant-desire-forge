@@ -100,15 +100,58 @@ export function SiteNav() {
         </button>
       </nav>
 
+      {/* Desktop search panel */}
+      <div
+        className={`hidden xl:block overflow-hidden transition-all duration-300 border-t border-border/40 bg-background/95 backdrop-blur-xl ${
+          searchOpen ? "max-h-32" : "max-h-0"
+        }`}
+      >
+        <form
+          onSubmit={submitSearch}
+          className="max-w-7xl mx-auto px-6 py-5 flex items-center gap-3"
+        >
+          <Search size={16} className="text-muted-foreground" />
+          <input
+            autoFocus={searchOpen}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search the whole site — essays, stories, kinks…"
+            className="flex-1 bg-transparent outline-none text-sm placeholder:text-muted-foreground/70"
+          />
+          <button
+            type="submit"
+            className="text-[11px] uppercase tracking-[0.25em] px-3 py-1.5 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Search
+          </button>
+          <button
+            type="button"
+            onClick={() => setSearchOpen(false)}
+            aria-label="Close"
+            className="text-muted-foreground hover:text-primary"
+          >
+            <X size={16} />
+          </button>
+        </form>
+      </div>
+
       <div
         className={`xl:hidden overflow-hidden transition-all duration-500 bg-background/95 backdrop-blur-xl border-t border-border/40 ${
           open ? "max-h-[80vh]" : "max-h-0"
         }`}
       >
         <ul className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-1">
-          {NAV.map((item) => (
-            <li key={item.href}>
-              {item.href.startsWith("/#") ? (
+          <li className="pb-3">
+            <form onSubmit={submitSearch} className="flex items-center gap-2 border border-border px-3 py-2.5">
+              <Search size={15} className="text-muted-foreground" />
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="Search the site…"
+                className="flex-1 bg-transparent outline-none text-sm placeholder:text-muted-foreground/70"
+              />
+            </form>
+          </li>
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
