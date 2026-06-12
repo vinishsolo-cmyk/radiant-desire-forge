@@ -100,17 +100,87 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "the-first-blindfold",
     title: "The First Blindfold",
-    excerpt: "On the small, ceremonial act of removing one sense to wake the others.",
+    excerpt:
+      "On the small, ceremonial act of removing one sense to wake the others. A slow, soothing guide for her first time in the dark.",
     topic: "Couple Play",
-    tags: ["sensory", "beginner", "aftercare"],
+    tags: ["sensory", "beginner", "aftercare", "trust", "ritual"],
     author: "Meera",
     date: "2025-10-09",
-    readTime: "5 min",
+    readTime: "9 min",
     cover: img(3),
-    download: { label: "Download the Sensory Map (PDF)", file: "/placeholders/blog/blog3.jpg" },
+    download: { label: "Download the First Blindfold ritual card (PDF)", file: "/placeholders/blog/blog3.jpg" },
     sections: [
-      { image: img(3), paragraphs: ["A silk scarf. A folded square of soft cotton. The first blindfold should feel like a kindness, not a costume."] },
-      { heading: "After", paragraphs: ["Untie it slowly. Let her open her eyes onto your face, not the ceiling."] },
+      {
+        heading: "Before you tie anything",
+        image: img(3),
+        paragraphs: [
+          "A silk scarf. A folded square of soft cotton. The first blindfold should feel like a kindness, not a costume. Lay it across your palm before you lay it across her eyes — let her see the thing that is about to take her sight.",
+          "There is no rush tonight. Light one lamp, low and warm. Close the door. Put the phone face down in another room. The world will keep turning without you for the next forty minutes.",
+        ],
+      },
+      {
+        heading: "The ask",
+        paragraphs: [
+          "Sit beside her, not across from her. Knees touching. Ask, in a normal voice — not a velvet one — 'May I cover your eyes for a little while?'",
+          "If she hesitates, that hesitation is the most important sentence in the room. Wait for it to finish speaking. If the answer is yes, name what you will do before you do it. 'I'm going to lift the scarf now. I'm going to tie it gently behind your head. Tell me if it pulls your hair.'",
+          "Consent is not a paragraph at the start. It is a conversation that breathes all the way through.",
+        ],
+      },
+      {
+        heading: "The tying",
+        image: img(1),
+        paragraphs: [
+          "Stand behind her and lower the silk like a slow exhale. Settle it across the bridge of her nose so no light leaks in from below — that small darkness is where the magic begins.",
+          "Tie the knot loose enough that she could shake it free if she wanted to. Real safety is the feeling that escape is always close at hand.",
+        ],
+      },
+      {
+        heading: "The first three minutes",
+        paragraphs: [
+          "Do nothing. Yes — nothing. Let her sit inside the dark and find her own breath. Most people are surprised by how loud the room becomes: the fridge two rooms away, a neighbour's door, her own pulse in her ears.",
+          "Place one warm hand flat on her sternum. Don't move it. Let her body remember that you are still there. This is the whole lesson of the blindfold: presence without performance.",
+        ],
+      },
+      {
+        heading: "Waking the other senses, gently",
+        image: img(5),
+        paragraphs: [
+          "Now, slowly, begin to introduce one thing at a time. The cool rim of a glass of water against her lower lip. A single drop of perfume on the inside of her wrist. The soft, rough side of a peach.",
+          "Pause between each. Ten seconds feels long in the dark; thirty feels like a small lifetime. Let the long pauses do the work — the body listens hardest in the silence after.",
+          "Speak less than you think you should. When you do speak, speak from where you are, so she can place you in the room without having to ask.",
+        ],
+      },
+      {
+        heading: "Touch, finally",
+        paragraphs: [
+          "When touch begins, let it begin somewhere unromantic — the back of an elbow, the soft place behind a knee, the inside of a forearm. The unromantic places are where the body has stored most of its waiting.",
+          "Follow her breath. When it lengthens, you are doing this right. When it shortens, slow down further. The blindfold is not the scene; her breath is the scene.",
+        ],
+      },
+      {
+        heading: "The first untying",
+        image: img(6),
+        paragraphs: [
+          "When you both feel the natural close of the wave, do not tear the silk off. Cup your hand over the blindfold first so the light arrives in steps, not in a flood.",
+          "Untie it slowly. Let her open her eyes onto your face, not the ceiling. The first thing she should see is the person who held the dark with her.",
+        ],
+      },
+      {
+        heading: "Aftercare — the part most people skip",
+        image: img(8),
+        paragraphs: [
+          "Wrap her in something soft. Bring the water. Sit close. Don't ask 'was that good' — ask 'what did you notice?' One question opens a conversation; the other closes it.",
+          "If tears come, they are not a problem. The body sometimes releases what the day was holding. Let them come, hand on her back, no rush.",
+          "Tomorrow, send a small message. 'Thinking about last night.' Aftercare is not a ten-minute window; it is a thread you keep gently pulling for a day or two.",
+        ],
+      },
+      {
+        heading: "If you are the one being blindfolded",
+        paragraphs: [
+          "You are allowed to keep your hand on his wrist the whole time. You are allowed to say wait. You are allowed to laugh, to cry, to ask for the lamp to come back on.",
+          "Nothing you feel inside the dark is wrong. Bring it back into the light with you.",
+        ],
+      },
     ],
   },
   {
