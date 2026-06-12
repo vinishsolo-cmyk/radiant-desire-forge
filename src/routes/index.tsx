@@ -595,9 +595,9 @@ function Freebies() {
               points you can download now, in complete privacy.
             </p>
           </div>
-          <a href="#freebies" className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary self-start md:self-end">
-            See all freebies →
-          </a>
+          <Link to="/freebies" className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary self-start md:self-end">
+            Open the free library →
+          </Link>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {freebies.map((f) => (
