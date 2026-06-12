@@ -80,9 +80,9 @@ function BlogPostPage() {
         </div>
 
         {/* BODY */}
-        <div className="mt-16 max-w-3xl mx-auto px-6 space-y-14">
+        <div className="mt-16 max-w-3xl mx-auto px-6 space-y-16">
           {post.sections.map((s, i) => (
-            <section key={i}>
+            <section key={i} className="soothe-in" style={{ animationDelay: `${i * 60}ms` }}>
               {s.heading && (
                 <h2 className="font-serif text-2xl md:text-3xl leading-tight">
                   {s.heading}
@@ -93,7 +93,7 @@ function BlogPostPage() {
                   <img src={s.image} alt={s.heading ?? post.title} loading="lazy" className="w-full h-full object-cover" />
                 </div>
               )}
-              <div className="mt-6 space-y-5 text-[17px] leading-[1.8] text-foreground/85">
+              <div className="mt-6 prose-soothe">
                 {s.paragraphs.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
