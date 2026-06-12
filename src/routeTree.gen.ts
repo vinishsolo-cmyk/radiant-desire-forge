@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as KinksExplorerRouteImport } from './routes/kinks-explorer'
+import { Route as FreebiesRouteImport } from './routes/freebies'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KinksSlugRouteImport } from './routes/kinks.$slug'
@@ -18,6 +19,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const KinksExplorerRoute = KinksExplorerRouteImport.update({
   id: '/kinks-explorer',
   path: '/kinks-explorer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreebiesRoute = FreebiesRouteImport.update({
+  id: '/freebies',
+  path: '/freebies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -44,6 +50,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/freebies': typeof FreebiesRoute
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/kinks/$slug': typeof KinksSlugRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/freebies': typeof FreebiesRoute
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/kinks/$slug': typeof KinksSlugRoute
@@ -59,19 +67,33 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
+  '/freebies': typeof FreebiesRoute
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blog' | '/kinks-explorer' | '/blog/$slug' | '/kinks/$slug'
+  fullPaths:
+    | '/'
+    | '/blog'
+    | '/freebies'
+    | '/kinks-explorer'
+    | '/blog/$slug'
+    | '/kinks/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/kinks-explorer' | '/blog/$slug' | '/kinks/$slug'
+  to:
+    | '/'
+    | '/blog'
+    | '/freebies'
+    | '/kinks-explorer'
+    | '/blog/$slug'
+    | '/kinks/$slug'
   id:
     | '__root__'
     | '/'
     | '/blog'
+    | '/freebies'
     | '/kinks-explorer'
     | '/blog/$slug'
     | '/kinks/$slug'
@@ -80,6 +102,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
+  FreebiesRoute: typeof FreebiesRoute
   KinksExplorerRoute: typeof KinksExplorerRoute
   KinksSlugRoute: typeof KinksSlugRoute
 }
@@ -91,6 +114,13 @@ declare module '@tanstack/react-router' {
       path: '/kinks-explorer'
       fullPath: '/kinks-explorer'
       preLoaderRoute: typeof KinksExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/freebies': {
+      id: '/freebies'
+      path: '/freebies'
+      fullPath: '/freebies'
+      preLoaderRoute: typeof FreebiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -137,9 +167,20 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
+  FreebiesRoute: FreebiesRoute,
   KinksExplorerRoute: KinksExplorerRoute,
   KinksSlugRoute: KinksSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
