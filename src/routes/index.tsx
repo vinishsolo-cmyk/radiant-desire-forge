@@ -105,12 +105,79 @@ function Home() {
       <PowerDynamics />
       <ShopTeaser />
       <Freebies />
+      <Instagram />
       <Games />
       <FinalCTA />
       <SiteFooter />
     </main>
   );
 }
+
+const instaPosts = [
+  { img: "/placeholders/instagram/insta1.jpg", caption: "A scarf, a slow exhale, a whole evening.", likes: "2.1k" },
+  { img: "/placeholders/instagram/insta2.jpg", caption: "Aftercare card — saved to highlights.", likes: "1.8k" },
+  { img: "/placeholders/instagram/insta3.jpg", caption: "What she texted at 2am, with permission.", likes: "3.4k" },
+  { img: "/placeholders/instagram/insta4.jpg", caption: "Three sentences that change the bedroom.", likes: "986" },
+  { img: "/placeholders/instagram/insta5.jpg", caption: "On keys, collars, and what they mean.", likes: "2.7k" },
+  { img: "/placeholders/instagram/insta6.jpg", caption: "Soft dominance is a noticing practice.", likes: "1.2k" },
+];
+
+function Instagram() {
+  return (
+    <section id="instagram" className="py-24 md:py-32 border-b border-border/60">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-xl">
+            <p className="eyebrow">New on Instagram</p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl leading-tight">
+              The quiet life of <em className="italic text-primary">@velvet.desire</em>.
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Small daily notes, soft visuals, and the conversations that didn't
+              fit anywhere else. Tap to read the caption.
+            </p>
+          </div>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary hover:underline self-start md:self-end"
+          >
+            Follow on Instagram →
+          </a>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+          {instaPosts.map((p, i) => (
+            <a
+              key={i}
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              className="group relative block aspect-square overflow-hidden bg-secondary"
+            >
+              <img
+                src={p.img}
+                alt={p.caption}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/70 transition-colors duration-500" />
+              <div className="absolute inset-0 p-4 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <p className="font-serif italic text-sm text-background leading-snug">
+                  "{p.caption}"
+                </p>
+                <p className="mt-2 text-[10px] uppercase tracking-[0.25em] text-background/80">
+                  ♥ {p.likes}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 /* ─────────────  SECTIONS  ───────────── */
 
