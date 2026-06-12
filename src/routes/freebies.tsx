@@ -246,7 +246,7 @@ function FreebiesLibrary() {
   }, [search]);
 
   const setSearch = (patch: Partial<typeof search>) =>
-    navigate({ search: (p) => ({ ...p, ...patch }) });
+    navigate({ search: (p: typeof search) => ({ ...p, ...patch }) });
 
   const active = !!(search.q || search.format || search.kink || search.level);
 
