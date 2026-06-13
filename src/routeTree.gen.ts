@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as KinksExplorerRouteImport } from './routes/kinks-explorer'
+import { Route as HerDesiresRouteImport } from './routes/her-desires'
 import { Route as FreebiesRouteImport } from './routes/freebies'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,6 +20,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const KinksExplorerRoute = KinksExplorerRouteImport.update({
   id: '/kinks-explorer',
   path: '/kinks-explorer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HerDesiresRoute = HerDesiresRouteImport.update({
+  id: '/her-desires',
+  path: '/her-desires',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FreebiesRoute = FreebiesRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
+  '/her-desires': typeof HerDesiresRoute
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/kinks/$slug': typeof KinksSlugRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
+  '/her-desires': typeof HerDesiresRoute
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/kinks/$slug': typeof KinksSlugRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
+  '/her-desires': typeof HerDesiresRoute
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/kinks/$slug': typeof KinksSlugRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/freebies'
+    | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
     | '/kinks/$slug'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/freebies'
+    | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
     | '/kinks/$slug'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/blog'
     | '/freebies'
+    | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
     | '/kinks/$slug'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRouteWithChildren
   FreebiesRoute: typeof FreebiesRoute
+  HerDesiresRoute: typeof HerDesiresRoute
   KinksExplorerRoute: typeof KinksExplorerRoute
   KinksSlugRoute: typeof KinksSlugRoute
 }
@@ -114,6 +127,13 @@ declare module '@tanstack/react-router' {
       path: '/kinks-explorer'
       fullPath: '/kinks-explorer'
       preLoaderRoute: typeof KinksExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/her-desires': {
+      id: '/her-desires'
+      path: '/her-desires'
+      fullPath: '/her-desires'
+      preLoaderRoute: typeof HerDesiresRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/freebies': {
@@ -168,6 +188,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRouteWithChildren,
   FreebiesRoute: FreebiesRoute,
+  HerDesiresRoute: HerDesiresRoute,
   KinksExplorerRoute: KinksExplorerRoute,
   KinksSlugRoute: KinksSlugRoute,
 }
