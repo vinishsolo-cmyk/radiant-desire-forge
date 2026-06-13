@@ -1,8 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Download, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, Share2, BookOpen, Heart, Sparkles } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
-import { BLOG_POSTS, findPost, type BlogPost } from "@/data/blog";
+import { BLOG_POSTS, findPost, type BlogPost, type BlogSection } from "@/data/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
@@ -38,11 +38,98 @@ export const Route = createFileRoute("/blog/$slug")({
   component: BlogPostPage,
 });
 
+/* ------------ Section Layouts (rotating template) ------------ */
+
+function SectionFullBleed({ s, idx }: { s: BlogSection; idx: number }) {
+  return (
+    <section className="soothe-in" style={{ animationDelay: `${idx * 60}ms` }}>
+      {s.image && (
+        <div className="aspect-[21/9] overflow-hidden bg-secondary">
+          <img src={s.image} alt={s.heading ?? ""} loading="lazy" className="w-full h-full object-cover" />
+        </div>
+      )}
+      <div className="max-w-2xl mx-auto mt-10 px-2">
+        {s.heading && <h2 className="font-serif text-3xl md:text-4xl leading-tight">{s.heading}</h2>}
+        <div className="mt-5 prose-soothe">
+          {s.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SectionSideImage({ s, idx, flip }: { s: BlogSection; idx: number; flip?: boolean }) {
+  return (
+    <section
+      className={`soothe-in grid md:grid-cols-12 gap-8 items-start ${flip ? "md:[&>div:first-child]:order-2" : ""}`}
+      style={{ animationDelay: `${idx * 60}ms` }}
+    >
+      {s.image ? (
+        <div className="md:col-span-5">
+          <div className="aspect-[4/5] overflow-hidden bg-secondary">
+            <img src={s.image} alt={s.heading ?? ""} loading="lazy" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      ) : null}
+      <div className={s.image ? "md:col-span-7" : "md:col-span-12 max-w-2xl mx-auto"}>
+        {s.heading && <h2 className="font-serif text-2xl md:text-3xl leading-tight">{s.heading}</h2>}
+        <div className="mt-5 prose-soothe">
+          {s.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SectionPullQuote({ s, idx }: { s: BlogSection; idx: number }) {
+  const [first, ...rest] = s.paragraphs;
+  return (
+    <section className="soothe-in" style={{ animationDelay: `${idx * 60}ms` }}>
+      {s.heading && (
+        <h2 className="font-serif text-2xl md:text-3xl leading-tight max-w-2xl mx-auto">
+          {s.heading}
+        </h2>
+      )}
+      {s.image && (
+        <div className="mt-6 aspect-[16/9] overflow-hidden bg-secondary max-w-4xl mx-auto">
+          <img src={s.image} alt={s.heading ?? ""} loading="lazy" className="w-full h-full object-cover" />
+        </div>
+      )}
+      <blockquote className="mt-8 border-l-2 border-primary pl-6 max-w-2xl mx-auto">
+        <p className="font-serif italic text-2xl md:text-3xl leading-snug text-foreground/90">
+          “{first}”
+        </p>
+      </blockquote>
+      {rest.length > 0 && (
+        <div className="mt-6 prose-soothe max-w-2xl mx-auto">
+          {rest.map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function renderSection(s: BlogSection, idx: number) {
+  // Rotate: 0 fullbleed, 1 side-right, 2 pullquote, 3 side-left
+  const mod = idx % 4;
+  if (!s.image) {
+    return <SectionSideImage key={idx} s={s} idx={idx} />;
+  }
+  if (mod === 0) return <SectionFullBleed key={idx} s={s} idx={idx} />;
+  if (mod === 1) return <SectionSideImage key={idx} s={s} idx={idx} />;
+  if (mod === 2) return <SectionPullQuote key={idx} s={s} idx={idx} />;
+  return <SectionSideImage key={idx} s={s} idx={idx} flip />;
+}
+
+/* --------------------- Page --------------------- */
+
 function BlogPostPage() {
   const post: BlogPost = Route.useLoaderData();
   const related = BLOG_POSTS.filter(
     (p) => p.slug !== post.slug && (p.topic === post.topic || p.tags.some((t) => post.tags.includes(t))),
   ).slice(0, 3);
+
+  const more = BLOG_POSTS.filter((p) => p.slug !== post.slug && !related.includes(p)).slice(0, 4);
 
   return (
     <main>
@@ -58,7 +145,7 @@ function BlogPostPage() {
             <ArrowLeft size={14} /> The Journal
           </Link>
           <p className="eyebrow mt-8">{post.topic}</p>
-          <h1 className="mt-4 font-serif text-4xl md:text-5xl leading-[1.1] text-balance">
+          <h1 className="mt-4 font-serif text-4xl md:text-6xl leading-[1.05] text-balance">
             {post.title}<span className="text-primary">.</span>
           </h1>
           <p className="mt-5 text-xl text-muted-foreground italic font-serif max-w-2xl">
@@ -73,39 +160,21 @@ function BlogPostPage() {
           </div>
         </div>
 
-        <div className="mt-12 max-w-5xl mx-auto px-6">
-          <div className="aspect-[16/9] overflow-hidden bg-secondary">
+        <div className="mt-12 max-w-6xl mx-auto px-6">
+          <div className="aspect-[16/8] overflow-hidden bg-secondary">
             <img src={post.cover} alt={post.title} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* BODY */}
-        <div className="mt-16 max-w-3xl mx-auto px-6 space-y-16">
-          {post.sections.map((s, i) => (
-            <section key={i} className="soothe-in" style={{ animationDelay: `${i * 60}ms` }}>
-              {s.heading && (
-                <h2 className="font-serif text-2xl md:text-3xl leading-tight">
-                  {s.heading}
-                </h2>
-              )}
-              {s.image && (
-                <div className="mt-6 aspect-[16/9] overflow-hidden bg-secondary">
-                  <img src={s.image} alt={s.heading ?? post.title} loading="lazy" className="w-full h-full object-cover" />
-                </div>
-              )}
-              <div className="mt-6 prose-soothe">
-                {s.paragraphs.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
-              </div>
-            </section>
-          ))}
+        {/* BODY — rotating layouts */}
+        <div className="mt-20 max-w-5xl mx-auto px-6 space-y-24">
+          {post.sections.map((s, i) => renderSection(s, i))}
 
           {post.download && (
-            <aside className="mt-16 border border-primary/40 bg-primary/5 p-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+            <aside className="border border-primary/40 bg-primary/5 p-8 md:p-10 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between max-w-3xl mx-auto">
               <div>
                 <p className="eyebrow text-primary">Free download</p>
-                <p className="mt-2 font-serif text-xl">{post.download.label}</p>
+                <p className="mt-2 font-serif text-2xl">{post.download.label}</p>
                 <p className="mt-1 text-sm text-muted-foreground">
                   A companion to this essay. Yours to keep.
                 </p>
@@ -120,8 +189,19 @@ function BlogPostPage() {
             </aside>
           )}
 
+          {/* CLOSING NOTE */}
+          <div className="max-w-2xl mx-auto text-center border-t border-border/60 pt-12">
+            <Sparkles className="mx-auto text-primary" size={20} />
+            <p className="mt-4 font-serif text-2xl italic text-foreground/80">
+              Thank you for reading slowly.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              If this essay moved something in you, leave it open in a tab and return to it tonight.
+            </p>
+          </div>
+
           {/* TAGS + SHARE */}
-          <div className="mt-14 border-t border-border/60 pt-8 flex flex-wrap items-center justify-between gap-4">
+          <div className="max-w-3xl mx-auto border-t border-border/60 pt-8 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap gap-1.5">
               {post.tags.map((t) => (
                 <Link
@@ -150,12 +230,19 @@ function BlogPostPage() {
         </div>
       </article>
 
-      {/* RELATED */}
+      {/* RECOMMENDED — related posts */}
       {related.length > 0 && (
-        <section className="mt-24 py-16 bg-secondary/40 border-t border-border/60">
+        <section className="mt-24 py-20 bg-secondary/40 border-t border-border/60">
           <div className="max-w-6xl mx-auto px-6">
-            <p className="eyebrow">Read next</p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">More from the journal</h2>
+            <div className="flex items-end justify-between gap-6 flex-wrap">
+              <div>
+                <p className="eyebrow">Recommended for you</p>
+                <h2 className="mt-3 font-serif text-3xl md:text-4xl">If this stayed with you</h2>
+              </div>
+              <Link to="/blog" className="text-[11px] uppercase tracking-[0.25em] text-primary inline-flex items-center gap-2">
+                All essays <ArrowRight size={14} />
+              </Link>
+            </div>
             <div className="mt-10 grid md:grid-cols-3 gap-8">
               {related.map((p) => (
                 <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group block">
@@ -164,12 +251,86 @@ function BlogPostPage() {
                   </div>
                   <p className="eyebrow mt-4">{p.topic}</p>
                   <h3 className="mt-2 font-serif text-xl group-hover:text-primary transition-colors">{p.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.excerpt}</p>
                 </Link>
               ))}
             </div>
           </div>
         </section>
       )}
+
+      {/* CONTINUE — curated links across the site */}
+      <section className="py-20 border-t border-border/60">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="eyebrow">Continue your exploration</p>
+          <h2 className="mt-3 font-serif text-3xl md:text-4xl">Where to wander next</h2>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            <Link to="/kinks-explorer" className="group block p-8 border border-border hover:border-primary/60 transition-colors">
+              <BookOpen className="text-primary" size={22} />
+              <h3 className="mt-4 font-serif text-2xl group-hover:text-primary transition-colors">Kinks Explorer</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                A library of curiosities, gently described. Browse the Top 15 or wander the A–Z.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary">
+                Open the library <ArrowRight size={14} />
+              </span>
+            </Link>
+            <Link to="/freebies" className="group block p-8 border border-border hover:border-primary/60 transition-colors">
+              <Download className="text-primary" size={22} />
+              <h3 className="mt-4 font-serif text-2xl group-hover:text-primary transition-colors">Freebies Library</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Ritual cards, worksheets, audio meditations and zip bundles. Yours to keep.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary">
+                Browse downloads <ArrowRight size={14} />
+              </span>
+            </Link>
+            <Link to="/blog" className="group block p-8 border border-border hover:border-primary/60 transition-colors">
+              <Heart className="text-primary" size={22} />
+              <h3 className="mt-4 font-serif text-2xl group-hover:text-primary transition-colors">The Journal</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                More slow essays, late-night confessions, and small letters on intimacy.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary">
+                All stories <ArrowRight size={14} />
+              </span>
+            </Link>
+          </div>
+
+          {/* MORE FROM JOURNAL */}
+          {more.length > 0 && (
+            <div className="mt-16">
+              <div className="flex items-center justify-between">
+                <h3 className="font-serif text-2xl">More from the journal</h3>
+                <Link to="/blog" className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary">
+                  See all
+                </Link>
+              </div>
+              <ul className="mt-6 divide-y divide-border/60 border-t border-b border-border/60">
+                {more.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: p.slug }}
+                      className="group grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] gap-5 items-center py-5"
+                    >
+                      <div className="aspect-square overflow-hidden bg-secondary">
+                        <img src={p.cover} alt={p.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.05]" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="eyebrow">{p.topic}</p>
+                        <p className="mt-1 font-serif text-lg md:text-xl group-hover:text-primary transition-colors truncate">{p.title}</p>
+                        <p className="hidden md:block mt-1 text-sm text-muted-foreground line-clamp-1">{p.excerpt}</p>
+                      </div>
+                      <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
 
       <SiteFooter />
     </main>
