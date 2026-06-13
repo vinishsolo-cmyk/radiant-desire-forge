@@ -4,7 +4,7 @@ import { Menu, X, Search } from "lucide-react";
 
 const NAV = [
   { label: "Home", href: "/" },
-  { label: "Her Desires", href: "/#her-desires" },
+  { label: "Her Desires", href: "/her-desires" },
   { label: "Couple Play", href: "/#couple-play" },
   { label: "Chastity & Control", href: "/#chastity" },
   { label: "Kinks Explorer", href: "/kinks-explorer" },
