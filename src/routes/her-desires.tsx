@@ -151,22 +151,23 @@ function HerDesires() {
                   <ul className="mt-10 space-y-px bg-border/60">
                     {c.topics.map((t, j) => (
                       <li key={t.title} className="bg-background">
-                        <div className="group flex items-start gap-5 p-5 hover:bg-primary/5 transition-colors">
+                        <Link
+                          to="/her-desires/$chapter"
+                          params={{ chapter: c.id }}
+                          hash={t.slug}
+                          className="group flex items-start gap-5 p-5 hover:bg-primary/5 transition-colors"
+                        >
                           <span className="font-serif italic text-primary text-lg shrink-0 w-8">
                             {String(j + 1).padStart(2, "0")}
                           </span>
                           <div className="flex-1">
-                            <h3 className="font-serif text-lg leading-snug">{t.title}</h3>
+                            <h3 className="font-serif text-lg leading-snug group-hover:text-primary transition-colors">{t.title}</h3>
                             <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{t.body}</p>
                           </div>
-                          <Link
-                            to="/blog"
-                            search={{ q: t.title, topic: "", tag: "" }}
-                            className="shrink-0 mt-1 text-[10px] uppercase tracking-[0.25em] text-primary opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-1"
-                          >
+                          <span className="shrink-0 mt-1 text-[10px] uppercase tracking-[0.25em] text-primary opacity-0 group-hover:opacity-100 transition-opacity inline-flex items-center gap-1">
                             Read <ArrowRight size={11} />
-                          </Link>
-                        </div>
+                          </span>
+                        </Link>
                       </li>
                     ))}
                   </ul>
