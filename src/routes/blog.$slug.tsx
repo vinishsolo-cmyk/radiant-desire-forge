@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Instagram } from "lucide-react";
 import { ArrowLeft, ArrowRight, Download, Share2, BookOpen, Heart, Sparkles } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -329,6 +330,52 @@ function BlogPostPage() {
               </ul>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* INSTAGRAM FEED */}
+      <section className="py-20 border-t border-border/60">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-end justify-between gap-6 flex-wrap">
+            <div>
+              <p className="eyebrow inline-flex items-center gap-2">
+                <Instagram size={14} className="text-primary" /> @velvet.desire
+              </p>
+              <h2 className="mt-3 font-serif text-3xl md:text-4xl">New in the feed</h2>
+              <p className="mt-2 text-muted-foreground max-w-md">
+                Small visual letters, posted between essays. Follow along for the quiet things.
+              </p>
+            </div>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] uppercase tracking-[0.25em] px-5 py-2.5 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors inline-flex items-center gap-2"
+            >
+              <Instagram size={14} /> Follow
+            </a>
+          </div>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3">
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <a
+                key={n}
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative aspect-square overflow-hidden bg-secondary block"
+              >
+                <img
+                  src={`/placeholders/instagram/insta${n}.jpg`}
+                  alt={`Instagram post ${n}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
+                />
+                <div className="absolute inset-0 bg-background/0 group-hover:bg-background/60 transition-colors duration-500 flex items-center justify-center">
+                  <Instagram size={22} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

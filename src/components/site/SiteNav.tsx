@@ -11,7 +11,7 @@ const NAV = [
   { label: "Games for Couples", href: "/#games" },
   { label: "Freebies Library", href: "/freebies" },
   { label: "Blog / Stories", href: "/blog" },
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   { label: "Contact / Consultations", href: "/#contact" },
 ];
 
