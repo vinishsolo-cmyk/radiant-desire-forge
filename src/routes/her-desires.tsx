@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Sparkles, ArrowRight, Flame, Heart, Eye, Crown, Lock, Users, Star, Zap, Feather } from "lucide-react";
+import { Sparkles, ArrowRight, Download } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { HER_CHAPTERS as CATEGORIES } from "@/data/her-desires";
 
 export const Route = createFileRoute("/her-desires")({
   head: () => ({
