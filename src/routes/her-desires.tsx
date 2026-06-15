@@ -86,8 +86,9 @@ function HerDesires() {
           <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {CATEGORIES.map((c, i) => (
               <li key={c.id} className="bg-background">
-                <a
-                  href={`#${c.id}`}
+                <Link
+                  to="/her-desires/$chapter"
+                  params={{ chapter: c.id }}
                   className="group block p-6 h-full hover:bg-primary/5 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -103,7 +104,7 @@ function HerDesires() {
                   <span className="mt-4 inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.25em] text-primary">
                     Read chapter <ArrowRight size={12} />
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
