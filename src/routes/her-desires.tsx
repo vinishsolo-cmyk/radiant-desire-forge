@@ -174,12 +174,21 @@ function HerDesires() {
 
                   <div className="mt-8 flex flex-wrap gap-3">
                     <Link
-                      to="/blog"
-                      search={{ q: c.eyebrow, topic: "", tag: "" }}
+                      to="/her-desires/$chapter"
+                      params={{ chapter: c.id }}
                       className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 text-[11px] uppercase tracking-[0.25em] hover:bg-primary/90 transition-colors"
                     >
-                      Read all essays <ArrowRight size={13} />
+                      Open full chapter <ArrowRight size={13} />
                     </Link>
+                    {c.download && (
+                      <a
+                        href={c.download.file}
+                        download
+                        className="inline-flex items-center gap-2 border border-primary/60 text-primary px-5 py-2.5 text-[11px] uppercase tracking-[0.25em] hover:bg-primary hover:text-primary-foreground transition-colors"
+                      >
+                        <Download size={13} /> Free download
+                      </a>
+                    )}
                     <Link
                       to="/freebies"
                       className="inline-flex items-center gap-2 border border-border px-5 py-2.5 text-[11px] uppercase tracking-[0.25em] text-foreground hover:border-primary hover:text-primary transition-colors"
