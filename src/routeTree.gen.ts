@@ -16,6 +16,7 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KinksSlugRouteImport } from './routes/kinks.$slug'
+import { Route as HerDesiresChapterRouteImport } from './routes/her-desires.$chapter'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const KinksExplorerRoute = KinksExplorerRouteImport.update({
@@ -53,6 +54,11 @@ const KinksSlugRoute = KinksSlugRouteImport.update({
   path: '/kinks/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HerDesiresChapterRoute = HerDesiresChapterRouteImport.update({
+  id: '/$chapter',
+  path: '/$chapter',
+  getParentRoute: () => HerDesiresRoute,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -64,9 +70,10 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
-  '/her-desires': typeof HerDesiresRoute
+  '/her-desires': typeof HerDesiresRouteWithChildren
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/her-desires/$chapter': typeof HerDesiresChapterRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRoutesByTo {
@@ -74,9 +81,10 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
-  '/her-desires': typeof HerDesiresRoute
+  '/her-desires': typeof HerDesiresRouteWithChildren
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/her-desires/$chapter': typeof HerDesiresChapterRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRoutesById {
@@ -85,9 +93,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
-  '/her-desires': typeof HerDesiresRoute
+  '/her-desires': typeof HerDesiresRouteWithChildren
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/her-desires/$chapter': typeof HerDesiresChapterRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
+    | '/her-desires/$chapter'
     | '/kinks/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
+    | '/her-desires/$chapter'
     | '/kinks/$slug'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
+    | '/her-desires/$chapter'
     | '/kinks/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -128,7 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   FreebiesRoute: typeof FreebiesRoute
-  HerDesiresRoute: typeof HerDesiresRoute
+  HerDesiresRoute: typeof HerDesiresRouteWithChildren
   KinksExplorerRoute: typeof KinksExplorerRoute
   KinksSlugRoute: typeof KinksSlugRoute
 }
@@ -184,6 +196,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KinksSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/her-desires/$chapter': {
+      id: '/her-desires/$chapter'
+      path: '/$chapter'
+      fullPath: '/her-desires/$chapter'
+      preLoaderRoute: typeof HerDesiresChapterRouteImport
+      parentRoute: typeof HerDesiresRoute
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -204,12 +223,24 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface HerDesiresRouteChildren {
+  HerDesiresChapterRoute: typeof HerDesiresChapterRoute
+}
+
+const HerDesiresRouteChildren: HerDesiresRouteChildren = {
+  HerDesiresChapterRoute: HerDesiresChapterRoute,
+}
+
+const HerDesiresRouteWithChildren = HerDesiresRoute._addFileChildren(
+  HerDesiresRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   FreebiesRoute: FreebiesRoute,
-  HerDesiresRoute: HerDesiresRoute,
+  HerDesiresRoute: HerDesiresRouteWithChildren,
   KinksExplorerRoute: KinksExplorerRoute,
   KinksSlugRoute: KinksSlugRoute,
 }
