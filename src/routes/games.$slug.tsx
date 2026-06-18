@@ -41,7 +41,7 @@ export const Route = createFileRoute("/games/$slug")({
 });
 
 function GamePage() {
-  const { game } = Route.useLoaderData();
+  const { game } = Route.useLoaderData() as { game: (typeof GAMES)[number] };
   const category = CATEGORIES.find((c) => c.id === game.category);
   const related = GAMES.filter((g) => g.category === game.category && g.slug !== game.slug).slice(0, 3);
   const sessionCode = game.slug.split("-").slice(0, 2).join("").toUpperCase().slice(0, 6) + Math.floor(100 + Math.random() * 900);
