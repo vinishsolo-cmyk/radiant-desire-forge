@@ -19,7 +19,7 @@ export const Route = createFileRoute("/games/$slug")({
       ],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): { game: (typeof GAMES)[number] } => {
     const game = GAMES.find((g) => g.slug === params.slug);
     if (!game) throw notFound();
     return { game };

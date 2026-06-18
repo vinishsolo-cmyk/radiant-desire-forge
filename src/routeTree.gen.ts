@@ -11,12 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as KinksExplorerRouteImport } from './routes/kinks-explorer'
 import { Route as HerDesiresRouteImport } from './routes/her-desires'
+import { Route as GamesRouteImport } from './routes/games'
 import { Route as FreebiesRouteImport } from './routes/freebies'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as KinksSlugRouteImport } from './routes/kinks.$slug'
 import { Route as HerDesiresChapterRouteImport } from './routes/her-desires.$chapter'
+import { Route as GamesSlugRouteImport } from './routes/games.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const KinksExplorerRoute = KinksExplorerRouteImport.update({
@@ -27,6 +29,11 @@ const KinksExplorerRoute = KinksExplorerRouteImport.update({
 const HerDesiresRoute = HerDesiresRouteImport.update({
   id: '/her-desires',
   path: '/her-desires',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesRoute = GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FreebiesRoute = FreebiesRouteImport.update({
@@ -59,6 +66,11 @@ const HerDesiresChapterRoute = HerDesiresChapterRouteImport.update({
   path: '/$chapter',
   getParentRoute: () => HerDesiresRoute,
 } as any)
+const GamesSlugRoute = GamesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GamesRoute,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -70,9 +82,11 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
+  '/games': typeof GamesRouteWithChildren
   '/her-desires': typeof HerDesiresRouteWithChildren
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/games/$slug': typeof GamesSlugRoute
   '/her-desires/$chapter': typeof HerDesiresChapterRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
@@ -81,9 +95,11 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
+  '/games': typeof GamesRouteWithChildren
   '/her-desires': typeof HerDesiresRouteWithChildren
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/games/$slug': typeof GamesSlugRoute
   '/her-desires/$chapter': typeof HerDesiresChapterRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
@@ -93,9 +109,11 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/freebies': typeof FreebiesRoute
+  '/games': typeof GamesRouteWithChildren
   '/her-desires': typeof HerDesiresRouteWithChildren
   '/kinks-explorer': typeof KinksExplorerRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/games/$slug': typeof GamesSlugRoute
   '/her-desires/$chapter': typeof HerDesiresChapterRoute
   '/kinks/$slug': typeof KinksSlugRoute
 }
@@ -106,9 +124,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/freebies'
+    | '/games'
     | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
+    | '/games/$slug'
     | '/her-desires/$chapter'
     | '/kinks/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -117,9 +137,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/freebies'
+    | '/games'
     | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
+    | '/games/$slug'
     | '/her-desires/$chapter'
     | '/kinks/$slug'
   id:
@@ -128,9 +150,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/freebies'
+    | '/games'
     | '/her-desires'
     | '/kinks-explorer'
     | '/blog/$slug'
+    | '/games/$slug'
     | '/her-desires/$chapter'
     | '/kinks/$slug'
   fileRoutesById: FileRoutesById
@@ -140,6 +164,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   FreebiesRoute: typeof FreebiesRoute
+  GamesRoute: typeof GamesRouteWithChildren
   HerDesiresRoute: typeof HerDesiresRouteWithChildren
   KinksExplorerRoute: typeof KinksExplorerRoute
   KinksSlugRoute: typeof KinksSlugRoute
@@ -159,6 +184,13 @@ declare module '@tanstack/react-router' {
       path: '/her-desires'
       fullPath: '/her-desires'
       preLoaderRoute: typeof HerDesiresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games': {
+      id: '/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof GamesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/freebies': {
@@ -203,6 +235,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HerDesiresChapterRouteImport
       parentRoute: typeof HerDesiresRoute
     }
+    '/games/$slug': {
+      id: '/games/$slug'
+      path: '/$slug'
+      fullPath: '/games/$slug'
+      preLoaderRoute: typeof GamesSlugRouteImport
+      parentRoute: typeof GamesRoute
+    }
     '/blog/$slug': {
       id: '/blog/$slug'
       path: '/$slug'
@@ -223,6 +262,16 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface GamesRouteChildren {
+  GamesSlugRoute: typeof GamesSlugRoute
+}
+
+const GamesRouteChildren: GamesRouteChildren = {
+  GamesSlugRoute: GamesSlugRoute,
+}
+
+const GamesRouteWithChildren = GamesRoute._addFileChildren(GamesRouteChildren)
+
 interface HerDesiresRouteChildren {
   HerDesiresChapterRoute: typeof HerDesiresChapterRoute
 }
@@ -240,6 +289,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   FreebiesRoute: FreebiesRoute,
+  GamesRoute: GamesRouteWithChildren,
   HerDesiresRoute: HerDesiresRouteWithChildren,
   KinksExplorerRoute: KinksExplorerRoute,
   KinksSlugRoute: KinksSlugRoute,
