@@ -8,7 +8,7 @@ const NAV = [
   { label: "Couple Play", href: "/#couple-play" },
   { label: "Chastity & Control", href: "/#chastity" },
   { label: "Kinks Explorer", href: "/kinks-explorer" },
-  { label: "Games for Couples", href: "/#games" },
+  { label: "Games for Couples", href: "/games" },
   { label: "Freebies Library", href: "/freebies" },
   { label: "Blog / Stories", href: "/blog" },
   { label: "About Us", href: "/about" },
